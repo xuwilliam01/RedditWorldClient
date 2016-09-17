@@ -1,6 +1,7 @@
 package com.example.angelachang.redditworld.Threads;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -27,6 +28,10 @@ public class WorldThread extends Thread{
     public int yPos=0;
     public float vx = 0;
     public float vy = 0;
+
+    private int prevX=0;
+    private int prevY=0;
+
     int moveSpeed=10;
     public boolean mleft, mright,mup, mdown;
 
@@ -76,11 +81,48 @@ public class WorldThread extends Thread{
        // System.out.println(backgroundX+" "+backgroundY);
 
         //draw the background!
-        canvas.drawBitmap(resources.background, xPos,yPos,painter);
+
+        scrollBackground(canvas); //draws the background accordingly
+
+
+
+        //canvas.drawBitmap(resources.background, xPos,yPos,painter);
+
+        //System.out.println(prevX+" "+prevY+" "+xPos+" "+yPos);
+        prevX=xPos;
+        prevY=yPos;
 
 
     }
 
+
+    public void scrollBackground(Canvas canvas) {
+        int x;
+        int y;
+
+        int offX=xPos;
+        int offY=yPos;
+        Bitmap bg = resources.background;
+        if (offX > 0) {
+            for (x = offX; x > 0; x -= bg.getWidth()) ;
+        }else {
+            for (x = offX; x < 0; x += bg.getWidth()) ;
+            x -= bg.getWidth();
+        }
+        if (offY > 0) {
+            for (y = offY; y > 0; y -= bg.getHeight()) ;
+        }else {
+            for (y = offY; y < 0; y += bg.getHeight());
+            y -= bg.getHeight();
+        }
+
+        for (int i = x; i < resources.screenX; i += bg.getWidth()) {
+            for (int j = y; j < resources.screenY; j += bg.getHeight()) {
+
+                canvas.drawBitmap(resources.background, i,j,painter);
+            }
+        }
+    }
     private void gameLogic(){
 
     }
@@ -131,6 +173,7 @@ public class WorldThread extends Thread{
         yPos += vy;
 
     }
+
 
 
 }
