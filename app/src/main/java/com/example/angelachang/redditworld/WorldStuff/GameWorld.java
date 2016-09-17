@@ -1,5 +1,7 @@
 package com.example.angelachang.redditworld.WorldStuff;
 
+import android.provider.ContactsContract;
+
 import com.example.angelachang.redditworld.WorldStuff.Player;
 import com.example.angelachang.redditworld.WorldStuff.Post;
 
@@ -12,17 +14,26 @@ public class GameWorld {
 
     // making GameWorld a singleton
     private static GameWorld instance = null;
-    protected GameWorld() {
+    protected GameWorld(int playerID) {
         // Exists only to defeat instantiation.
+        m_playerID = playerID;
+    }
+
+    public static void createInstance(int playerID){
+        if(instance == null) {
+            instance = new GameWorld(playerID);
+        }
     }
     public static GameWorld getInstance() {
+
+
         if(instance == null) {
-            instance = new GameWorld();
+            throw new ExceptionInInitializerError();
         }
         return instance;
     }
 
-    private int m_playerID; // id of main player
+    private static int m_playerID; // id of main player
     public ArrayList<Player> players = new ArrayList<Player>();
     public ArrayList<Post> posts = new ArrayList<Post>();
 
@@ -32,6 +43,7 @@ public class GameWorld {
     public void setPlayerID(int playerID){
         m_playerID = playerID;
     }
+
 
 
 }
