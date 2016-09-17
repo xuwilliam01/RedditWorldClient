@@ -14,7 +14,7 @@ public class ImageResources {
     Bitmap[] playerSprites = new Bitmap[4]; //stores the playerSprites
     int curPlayerSprite=0; //indicates the index of playerSprite
 
-    int screenX, screenY; //width and height of the screen
+    public int screenX, screenY; //width and height of the screen
 
     public Bitmap background, tree, rock;
 
@@ -24,10 +24,10 @@ public class ImageResources {
     public ImageResources(Context ctx) {
         DisplayMetrics dm = new DisplayMetrics();
         dm=ctx.getResources().getDisplayMetrics();
-        int screenY = Math.abs(dm.heightPixels);
-        int screenX = Math.abs(dm.widthPixels);
+        screenY = Math.abs(dm.heightPixels);
+        screenX = Math.abs(dm.widthPixels);
 
-        System.out.println(screenX+" "+screenY);
+
 
         //load the background:
         background = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.grass);
