@@ -15,7 +15,7 @@ import com.example.angelachang.redditworld.WorldStuff.GameWorld;
  */
 public class WorldView  extends SurfaceView implements SurfaceHolder.Callback{
 
-    WorldThread thread;
+    public WorldThread thread;
 
     public WorldView(Context context, AttributeSet attrib) {
         super(context, attrib);
@@ -50,4 +50,6 @@ public class WorldView  extends SurfaceView implements SurfaceHolder.Callback{
     public boolean onTouchEvent(MotionEvent e){
         return thread.onTouchEvent(e);
     }
+
+
 }

@@ -23,6 +23,9 @@ public class WorldThread extends Thread{
 
     int x = 0;
 
+    public int backgroundX=0;
+    public int backgroundY=0;
+
     private SurfaceHolder mSurfaceHolder;
 
     ImageResources resources;
@@ -43,6 +46,7 @@ public class WorldThread extends Thread{
                 c = mSurfaceHolder.lockCanvas(null);
                 synchronized (mSurfaceHolder) {
                     //game logic all calculation and data pulling goes here
+                    gameLogic();
 
                     synchronized (mRunLock) { //dafuq does this do? mrunlock is just a generic new obj
                         if (running) doDraw(c);
@@ -55,18 +59,22 @@ public class WorldThread extends Thread{
                 }
             }
         }
-    }
+}
 
     private void doDraw(Canvas canvas) {
         // Draw the background image. Operations on the Canvas accumulate
         // so this is like clearing the screen.
         canvas.drawColor(Color.BLACK);
         canvas.drawRect(20,30,x++,50,painter);
-        System.out.println("DEBUG");
+       // System.out.println(backgroundX+" "+backgroundY);
 
         //draw the background!
-        canvas.drawBitmap(resources.background, 0,0,painter);
+        canvas.drawBitmap(resources.background, backgroundX,backgroundY,painter);
 
+
+    }
+
+    private void gameLogic(){
 
     }
 

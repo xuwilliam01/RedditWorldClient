@@ -2,13 +2,16 @@ package com.example.angelachang.redditworld.WorldStuff;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 import com.example.angelachang.redditworld.R;
 import com.example.angelachang.redditworld.Util.DataProvider;
-
+import com.example.angelachang.redditworld.Views.WorldView;
 public class WorldActivity extends AppCompatActivity {
 
     private static DataProvider dataProvider;
+
+    int moveSpeed=10;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -19,6 +22,25 @@ public class WorldActivity extends AppCompatActivity {
     public static DataProvider getDataProvider(){
         return dataProvider;
     }
+
+    public void MoveUp(View v){
+
+        ((WorldView) v).thread.backgroundY+=moveSpeed;
+    }
+
+    public void MoveDown(View v){
+        ((WorldView) v).thread.backgroundY-=moveSpeed;
+    }
+
+    public void MoveLeft(View v){
+        ((WorldView) v).thread.backgroundX-=moveSpeed;
+    }
+
+    public void MoveRight(View v){
+        ((WorldView) v).thread.backgroundX+=moveSpeed;
+    }
+
+
 
 
 }
