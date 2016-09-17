@@ -8,6 +8,7 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import com.example.angelachang.redditworld.Threads.WorldThread;
+import com.example.angelachang.redditworld.WorldStuff.GameWorld;
 
 /**
  * Created by oscar on 9/17/16.
@@ -15,6 +16,7 @@ import com.example.angelachang.redditworld.Threads.WorldThread;
 public class WorldView  extends SurfaceView implements SurfaceHolder.Callback{
 
     WorldThread thread;
+    GameWorld gameWorld = GameWorld.getInstance();
 
     public WorldView(Context context, AttributeSet attrib) {
         super(context, attrib);
