@@ -26,10 +26,43 @@
     <com.example.angelachang.redditworld.Views.WorldView
             android:layout_width="fill_parent"
             android:layout_height="fill_parent" android:id="@+id/view"
-            android:layout_alignBottom="@+id/menubutton"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"/>
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/menubutton"
+        android:layout_alignEnd="@+id/menubutton" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/upbutton"
+        android:layout_above="@+id/leftbutton"
+        android:layout_toRightOf="@+id/leftbutton"
+        android:layout_toEndOf="@+id/leftbutton" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/leftbutton"
+        android:layout_above="@+id/menubutton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rightbutton"
+        android:layout_alignTop="@+id/leftbutton"
+        android:layout_toRightOf="@+id/upbutton"
+        android:layout_toEndOf="@+id/upbutton" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/downbutton"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/rightbutton"
+        android:layout_toStartOf="@+id/rightbutton" />
 </RelativeLayout>

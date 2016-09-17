@@ -4,10 +4,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.angelachang.redditworld.R;
-import com.example.angelachang.redditworld.Threads.ServerComThread;
 
 public class WorldActivity extends AppCompatActivity {
 
+    private static DataProvider dataProvider;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -15,6 +15,12 @@ public class WorldActivity extends AppCompatActivity {
         Thread d = new ServerComThread();
         d.start();
     }
+
+    public static DataProvider getDataProvider(){
+        return dataProvider;
+    }
+
+
 }
 
 
