@@ -8,8 +8,7 @@
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Top"
+        android:layout_height="wrap_content"        android:text="Top"
         android:id="@+id/topbutton"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
