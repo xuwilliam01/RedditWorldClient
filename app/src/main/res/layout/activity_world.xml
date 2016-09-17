@@ -39,7 +39,7 @@
         android:layout_above="@+id/leftbutton"
         android:layout_toRightOf="@+id/leftbutton"
         android:layout_toEndOf="@+id/leftbutton"
-        android:onClick="MoveUp"/>/>
+        android:onClick="MoveUp"/>
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -49,7 +49,7 @@
         android:layout_above="@+id/menubutton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:onClick="MoveLeft"/>/>
+        android:onClick="MoveLeft"/>
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -59,7 +59,7 @@
         android:layout_alignTop="@+id/leftbutton"
         android:layout_toRightOf="@+id/upbutton"
         android:layout_toEndOf="@+id/upbutton"
-        android:onClick="MoveRigh"/>/>
+        android:onClick="MoveRight"/>
 
     <Button
         style="?android:attr/buttonStyleSmall"

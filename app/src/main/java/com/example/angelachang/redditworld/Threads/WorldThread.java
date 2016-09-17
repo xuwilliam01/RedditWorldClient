@@ -23,8 +23,8 @@ public class WorldThread extends Thread{
 
     int x = 0;
 
-    public int backgroundX=0;
-    public int backgroundY=0;
+    public static int backgroundX=0;
+    public static  int backgroundY=0;
 
     private SurfaceHolder mSurfaceHolder;
 

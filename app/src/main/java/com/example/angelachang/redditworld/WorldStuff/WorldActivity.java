@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.angelachang.redditworld.R;
+import com.example.angelachang.redditworld.Threads.WorldThread;
 import com.example.angelachang.redditworld.Util.DataProvider;
 import com.example.angelachang.redditworld.Views.WorldView;
 public class WorldActivity extends AppCompatActivity {
@@ -25,19 +26,23 @@ public class WorldActivity extends AppCompatActivity {
 
     public void MoveUp(View v){
 
-        ((WorldView) v).thread.backgroundY+=moveSpeed;
+        //((WorldView) v).thread.backgroundY+=moveSpeed;
+        WorldThread.backgroundY+=moveSpeed;
     }
 
     public void MoveDown(View v){
-        ((WorldView) v).thread.backgroundY-=moveSpeed;
+       // ((WorldView) v).thread.backgroundY-=moveSpeed;
+        WorldThread.backgroundY-=moveSpeed;
     }
 
     public void MoveLeft(View v){
-        ((WorldView) v).thread.backgroundX-=moveSpeed;
+        //((WorldView) v).thread.backgroundX-=moveSpeed;
+        WorldThread.backgroundX+=moveSpeed;
     }
 
     public void MoveRight(View v){
-        ((WorldView) v).thread.backgroundX+=moveSpeed;
+       // ((WorldView) v).thread.backgroundX+=moveSpeed;
+        WorldThread.backgroundX-=moveSpeed;
     }
 
 
