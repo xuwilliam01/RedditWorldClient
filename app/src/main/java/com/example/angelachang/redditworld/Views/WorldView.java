@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import com.example.angelachang.redditworld.Threads.WorldThread;
@@ -42,5 +43,10 @@ public class WorldView  extends SurfaceView implements SurfaceHolder.Callback{
     @Override
     public void surfaceDestroyed(SurfaceHolder holder) {
 
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent e){
+        return thread.onTouchEvent(e);
     }
 }

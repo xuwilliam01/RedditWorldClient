@@ -2,8 +2,10 @@ package com.example.angelachang.redditworld.Threads;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.os.Handler;
+import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 
 /**
@@ -54,8 +56,14 @@ public class WorldThread extends Thread{
     private void doDraw(Canvas canvas) {
         // Draw the background image. Operations on the Canvas accumulate
         // so this is like clearing the screen.
+        canvas.drawColor(Color.BLACK);
         canvas.drawRect(20,30,x++,50,painter);
         System.out.println("DEBUG");
+    }
+
+    public boolean onTouchEvent(MotionEvent e){
+        x = (int) e.getX() ;
+        return true;
     }
 
 
