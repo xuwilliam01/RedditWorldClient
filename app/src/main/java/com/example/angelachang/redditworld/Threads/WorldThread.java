@@ -97,11 +97,11 @@ public class WorldThread extends Thread{
         }
 
         if (mup){
-            xPos+=moveSpeed;
+            yPos+=moveSpeed;
         }
 
         if(mdown){
-            xPos-=moveSpeed;
+            yPos-=moveSpeed;
         }
 
     }
