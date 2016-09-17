@@ -16,7 +16,6 @@ import com.example.angelachang.redditworld.WorldStuff.GameWorld;
 public class WorldView  extends SurfaceView implements SurfaceHolder.Callback{
 
     WorldThread thread;
-    GameWorld gameWorld = GameWorld.getInstance();
 
     public WorldView(Context context, AttributeSet attrib) {
         super(context, attrib);
