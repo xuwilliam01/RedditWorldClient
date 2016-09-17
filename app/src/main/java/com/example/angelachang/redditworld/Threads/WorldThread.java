@@ -23,8 +23,10 @@ public class WorldThread extends Thread{
 
     int x = 0;
 
-    public static int backgroundX=0;
-    public static  int backgroundY=0;
+    public int xPos=0;
+    public int yPos=0;
+    int moveSpeed=10;
+    public boolean mleft, mright,mup, mdown;
 
     private SurfaceHolder mSurfaceHolder;
 
@@ -49,7 +51,10 @@ public class WorldThread extends Thread{
                     gameLogic();
 
                     synchronized (mRunLock) { //dafuq does this do? mrunlock is just a generic new obj
-                        if (running) doDraw(c);
+                        if (running){
+                            doDraw(c);
+                            doScroll();
+                        }
                     }
                 }
             } finally {
@@ -69,7 +74,7 @@ public class WorldThread extends Thread{
        // System.out.println(backgroundX+" "+backgroundY);
 
         //draw the background!
-        canvas.drawBitmap(resources.background, backgroundX,backgroundY,painter);
+        canvas.drawBitmap(resources.background, xPos,yPos,painter);
 
 
     }
@@ -83,6 +88,23 @@ public class WorldThread extends Thread{
         return true;
     }
 
+    public void doScroll(){
+        if (mleft){
+            xPos+=moveSpeed;
+        }
+        if (mright){
+            xPos-=moveSpeed;
+        }
+
+        if (mup){
+            xPos+=moveSpeed;
+        }
+
+        if(mdown){
+            xPos-=moveSpeed;
+        }
+
+    }
 
 
 

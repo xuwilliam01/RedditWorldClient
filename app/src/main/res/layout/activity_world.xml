@@ -38,7 +38,7 @@
         android:layout_above="@+id/leftbutton"
         android:layout_toRightOf="@+id/leftbutton"
         android:layout_toEndOf="@+id/leftbutton"
-        android:onClick="MoveUp"/>
+        />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -48,7 +48,7 @@
         android:layout_above="@+id/menubutton"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:onClick="MoveLeft"/>
+        />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -58,7 +58,7 @@
         android:layout_alignTop="@+id/leftbutton"
         android:layout_toRightOf="@+id/upbutton"
         android:layout_toEndOf="@+id/upbutton"
-        android:onClick="MoveRight"/>
+        />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -68,7 +68,7 @@
         android:layout_alignParentBottom="true"
         android:layout_toLeftOf="@+id/rightbutton"
         android:layout_toStartOf="@+id/rightbutton"
-        android:onClick="MoveDown"/>
+        />
 
     <TableLayout
         android:layout_width="match_parent"
