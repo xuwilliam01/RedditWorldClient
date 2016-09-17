@@ -4,6 +4,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.angelachang.redditworld.WorldStuff.Coordinate;
 import com.example.angelachang.redditworld.WorldStuff.Player;
+import com.example.angelachang.redditworld.WorldStuff.Post;
 
 import java.util.ArrayList;
 
@@ -13,6 +14,9 @@ import java.util.ArrayList;
 public interface DataProvider {
 
     public Coordinate getPlayerLocation();
-    public ArrayList<Player> getPlayers();
+    public Player[] players = new Player[100000];
+    public Player[] posts = new Player[100000];
+
+
 
 }

@@ -25,6 +25,8 @@ public class WorldThread extends Thread{
 
     public int xPos=0;
     public int yPos=0;
+    public float vx = 0;
+    public float vy = 0;
     int moveSpeed=10;
     public boolean mleft, mright,mup, mdown;
 
@@ -83,13 +85,35 @@ public class WorldThread extends Thread{
 
     }
 
+    private double sx= 0;
+    private double sy = 0;
+
     public boolean onTouchEvent(MotionEvent e){
-        x = (int) e.getX() ;
+
+        if(e.getActionMasked() == MotionEvent.ACTION_DOWN){
+            sx = e.getX();
+            sy = e.getY();
+        }
+        double dx = (int)(e.getX()-sx);
+        double dy = (int)(e.getY()-sy);
+        vx = (int)( -0.05 * dx);
+        vy =(int)( -0.05 * dy);
+        if(Math.sqrt(Math.pow(vx,2) + Math.pow(vy,2))  > moveSpeed) {
+            float factor = (float) (moveSpeed / Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2)));
+            vx = -factor * (float)dx;
+            vy = -factor * (float)dy;
+        }
+        if(e.getActionMasked() == MotionEvent.ACTION_UP) {
+            vx = 0;
+            vy = 0;
+
+        }
+
         return true;
     }
 
     public void doScroll(){
-        if (mleft){
+       /* if (mleft){
             xPos+=moveSpeed;
         }
         if (mright){
@@ -102,10 +126,11 @@ public class WorldThread extends Thread{
 
         if(mdown){
             yPos-=moveSpeed;
-        }
+        }*/
+        xPos += vx;
+        yPos += vy;
 
     }
-
 
 
 }

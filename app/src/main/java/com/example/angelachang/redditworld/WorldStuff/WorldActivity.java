@@ -22,65 +22,6 @@ public class WorldActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_world);
         rootview=this;
-        SetListeners();
-
-    }
-
-    public void SetListeners(){
-
-        Button upButton = (Button)findViewById(R.id.upbutton);
-        Button downButton = (Button)findViewById(R.id.downbutton);
-        Button leftbutton = (Button)findViewById(R.id.leftbutton);
-        Button rightbutton = (Button)findViewById(R.id.rightbutton);
-
-        upButton.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                    ((WorldView) WorldActivity.rootview.findViewById(R.id.view)).thread.mup=true;
-                } else if (event.getAction() == MotionEvent.ACTION_UP) {
-                    ((WorldView) WorldActivity.rootview.findViewById(R.id.view)).thread.mup=false;
-                }
-                return true;
-            }
-        });
-
-        downButton.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                    ((WorldView) WorldActivity.rootview.findViewById(R.id.view)).thread.mdown=true;
-                } else if (event.getAction() == MotionEvent.ACTION_UP) {
-                    ((WorldView) WorldActivity.rootview.findViewById(R.id.view)).thread.mdown=false;
-                }
-                return true;
-            }
-        });
-
-        leftbutton.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                    ((WorldView) WorldActivity.rootview.findViewById(R.id.view)).thread.mleft=true;
-                } else if (event.getAction() == MotionEvent.ACTION_UP) {
-                    ((WorldView) WorldActivity.rootview.findViewById(R.id.view)).thread.mleft=false;
-                }
-                return true;
-            }
-        });
-
-        rightbutton.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if (event.getAction() == MotionEvent.ACTION_DOWN) {
-
-                    ((WorldView) WorldActivity.rootview.findViewById(R.id.view)).thread.mright=true;
-                } else if (event.getAction() == MotionEvent.ACTION_UP) {
-                    ((WorldView) WorldActivity.rootview.findViewById(R.id.view)).thread.mright=false;
-                }
-                return true;
-            }
-        });
     }
 
     public static DataProvider getDataProvider(){

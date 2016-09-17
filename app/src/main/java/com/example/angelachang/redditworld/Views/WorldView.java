@@ -1,12 +1,16 @@
 package com.example.angelachang.redditworld.Views;
 
 import android.content.Context;
+import android.graphics.Point;
 import android.os.Handler;
 import android.os.Message;
 import android.util.AttributeSet;
+import android.view.Display;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.WindowManager;
+
 import com.example.angelachang.redditworld.Threads.WorldThread;
 import com.example.angelachang.redditworld.WorldStuff.GameWorld;
 
@@ -49,6 +53,9 @@ public class WorldView  extends SurfaceView implements SurfaceHolder.Callback{
     @Override
     public boolean onTouchEvent(MotionEvent e){
         return thread.onTouchEvent(e);
+    }
+
+    public void moveUp(){
     }
 
 
