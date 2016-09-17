@@ -39,7 +39,8 @@ public class WorldThread extends Thread{
             try {
                 c = mSurfaceHolder.lockCanvas(null);
                 synchronized (mSurfaceHolder) {
-                    //game logic
+                    //game logic all calculation and data pulling goes here
+
                     synchronized (mRunLock) { //dafuq does this do? mrunlock is just a generic new obj
                         if (running) doDraw(c);
                     }
