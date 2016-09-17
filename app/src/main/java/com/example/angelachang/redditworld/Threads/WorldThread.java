@@ -59,7 +59,6 @@ public class WorldThread extends Thread{
         // so this is like clearing the screen.
         canvas.drawColor(Color.BLACK);
         canvas.drawRect(20,30,x++,50,painter);
-        System.out.println("DEBUG");
     }
 
     public boolean onTouchEvent(MotionEvent e){

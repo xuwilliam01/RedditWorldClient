@@ -5,8 +5,8 @@ package com.example.angelachang.redditworld.Util;
  */
 public class ConfigVals {
 
-    public static final String server_ip = "127.0.0.1";
-    public static final int port = 80;
+    public static final String server_ip = "10.21.100.158";
+    public static final int port = 4200;
 
 
 }
