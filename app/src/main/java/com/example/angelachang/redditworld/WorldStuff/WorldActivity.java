@@ -4,6 +4,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.example.angelachang.redditworld.R;
+import com.example.angelachang.redditworld.Threads.ServerComThread;
+import com.example.angelachang.redditworld.Util.DataProvider;
 
 public class WorldActivity extends AppCompatActivity {
 
