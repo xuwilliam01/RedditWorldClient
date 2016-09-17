@@ -8,6 +8,8 @@ import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 
+import com.example.angelachang.redditworld.ImageResources;
+
 /**
  * Created by oscar on 9/17/16.
  */
@@ -23,6 +25,7 @@ public class WorldThread extends Thread{
 
     private SurfaceHolder mSurfaceHolder;
 
+    ImageResources resources;
     public WorldThread(SurfaceHolder surfaceHolder, Context context,
                        Handler handler) {
 
@@ -30,7 +33,7 @@ public class WorldThread extends Thread{
         painter = new Paint();
         painter.setAntiAlias(true);
         painter.setARGB(255, 0, 255, 0);
-
+        resources = new ImageResources(context);
     }
 
     public void run() {
@@ -60,6 +63,11 @@ public class WorldThread extends Thread{
         canvas.drawColor(Color.BLACK);
         canvas.drawRect(20,30,x++,50,painter);
         System.out.println("DEBUG");
+
+        //draw the background!
+        canvas.drawBitmap(resources.background, 0,0,painter);
+
+
     }
 
     public boolean onTouchEvent(MotionEvent e){
