@@ -55,7 +55,7 @@ public class ServerComThread extends Thread{
                         WorldActivity.getDataProvider().setID(Integer.parseInt(b[currentToken++]));
                     } else if(b[currentToken].equals("D")){
                         currentToken++;
-                        WorldActivity.getDataProvider().
+                        WorldActivity.getDataProvider().removePlayer(Integer.parseInt(b[currentToken++]));
                     }
                     //System.out.println("Current" + currentToken);
                 }
