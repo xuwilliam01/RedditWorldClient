@@ -33,7 +33,7 @@ public class ServerOutThread extends Thread{
                     fr.flush();
                 }
                 //System.
-                Thread.sleep(100);
+                //Thread.sleep();
             }catch(Exception e){
                 e.printStackTrace();
             }

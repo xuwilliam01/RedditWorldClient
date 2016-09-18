@@ -13,6 +13,7 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 
 import com.example.angelachang.redditworld.ImageResources;
+import com.example.angelachang.redditworld.Views.WorldView;
 import com.example.angelachang.redditworld.WorldStuff.Player;
 import com.example.angelachang.redditworld.WorldStuff.Post;
 import com.example.angelachang.redditworld.WorldStuff.WorldActivity;
@@ -164,7 +165,8 @@ public class WorldThread extends Thread{
     public void displayPlayers(Canvas canvas){
         for (Player p : WorldActivity.getDataProvider().getPlayers()){
             if(p == null)continue;
-            System.out.println("DRAWING PLAYERSSS");
+            if(p.getID() == WorldActivity.getDataProvider().getMyID())continue;
+            //System.out.println("DRAWING PLAYERSSS");
             int i=p.getImage();
             if (i <5) {
                 p.Display(canvas, painter, xPos, yPos, resources.screenX, resources.screenY, resources.playerSpritesLeft[i]);

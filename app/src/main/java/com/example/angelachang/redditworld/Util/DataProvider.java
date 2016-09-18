@@ -23,6 +23,9 @@ public interface DataProvider {
     public Post[] getPosts();
     public Player[] getPlayers();
 
+    public int getMyID();
+    public void setID(int i);
+
 
 
 }

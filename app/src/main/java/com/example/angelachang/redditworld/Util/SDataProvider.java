@@ -10,6 +10,10 @@ import java.util.Arrays;
  * Created by oscar on 9/17/16.
  */
 public class SDataProvider implements DataProvider {
+
+
+    int id = 0;
+
     public SDataProvider(){
     }
 
@@ -47,4 +51,13 @@ public class SDataProvider implements DataProvider {
 
     }
 
+    @Override
+    public synchronized int getMyID(){
+        return id;
+    }
+
+    @Override
+    public synchronized void setID(int b){
+        id = b;
+    }
 }
