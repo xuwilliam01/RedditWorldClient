@@ -77,6 +77,9 @@ public class WorldThread extends Thread{
         Post p = new Post(10,200,200,"test","This is a reddit post! This is a reddit post! This is a reddit post! This is a reddit post! This is a reddit post!",420);
         postList.add(p);
 
+        Player pp = new Player(1,400,400,9);
+        playerList.add(pp);
+
     }
 
     public void run() {
@@ -146,7 +149,15 @@ public class WorldThread extends Thread{
     }
 
     public void displayPlayers(Canvas canvas){
-
+        for (Player p : playerList){
+            int i=p.getImage();
+            if (i <5) {
+                p.Display(canvas, painter, xPos, yPos, resources.screenX, resources.screenY, resources.playerSpritesLeft[i]);
+            }else{
+                i-=5;
+                p.Display(canvas, painter, xPos, yPos, resources.screenX, resources.screenY, resources.playerSpritesRight[i]);
+            }
+        }
     }
 
     public void animatePlayer(Canvas canvas){

@@ -1,5 +1,10 @@
 package com.example.angelachang.redditworld.WorldStuff;
 
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Rect;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -73,5 +78,34 @@ public class Player {
 
     public void setMessage(String a){
         m_message = a;
+    }
+
+
+    public Player(int id, int x, int y, int image){
+        m_ID = id;
+        m_x = x;
+        m_y = y;
+        m_image = image;
+    }
+
+
+    public void Display(Canvas canvas, Paint painter, int offsetX, int offsetY, int screenX, int screenY, Bitmap image){ //draws the post
+        int x = offsetX -m_x+ (screenX/2);
+        int y = offsetY-m_y + (screenY/2);
+
+        canvas.drawBitmap(image, x,y,painter);
+        painter.setTextSize(50);
+
+        painter.setColor(Color.BLACK);
+
+        if (m_message !="μ" && m_message !=null){
+            Rect r= new Rect();
+            painter.getTextBounds(m_message,0,m_message.length(),r);
+            canvas.drawText(m_message,x+image.getWidth()/2 - r.width()/2,y-50,painter);
+
+        }
+
+
+
     }
 }

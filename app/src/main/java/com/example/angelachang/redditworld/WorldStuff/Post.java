@@ -123,11 +123,6 @@ public class Post {
             }
         }
 
-
-
-
-
-
     }
 
     public void Open(){ //opens the whole post for viewing
