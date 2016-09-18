@@ -30,7 +30,7 @@ public class ServerComThread extends Thread{
             BufferedReader is = new BufferedReader(new InputStreamReader(sock.getInputStream()));
             PrintWriter r = new PrintWriter( sock.getOutputStream());
 
-            //new ServerOutThread(r).start();
+            new ServerOutThread(r).start();
 
             while(is.ready()){
                 String d = is.readLine();

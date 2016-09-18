@@ -65,8 +65,10 @@ public class WorldThread extends Thread{
         painter.setAntiAlias(true);
         painter.setARGB(255, 0, 255, 0);
         painter2 = new Paint();
+        painter2.setStyle(Paint.Style.FILL);
         painter2.setAntiAlias(true);
-        painter2.setARGB(255, 255, 255, 0);
+        painter2.setARGB(255, 255, 0, 0);
+        painter2.setStrokeWidth(5f);
         resources = new ImageResources(context);
     }
 
@@ -106,9 +108,6 @@ public class WorldThread extends Thread{
         // so this is like clearing the screen.
         canvas.drawColor(Color.BLACK);
         canvas.drawRect(20,30,x++,50,painter);
-        if(sx != -1){
-            canvas.drawCircle((float)sx,(float)sy,10,painter);
-        }
                // System.out.println(backgroundX+" "+backgroundY);
 
         //draw the background!
@@ -119,6 +118,13 @@ public class WorldThread extends Thread{
 
         displayPosts(canvas);
         displayPlayers(canvas);
+
+        if(sx != -1){
+            canvas.drawCircle((float)sx,(float)sy,10,painter2);
+            canvas.drawLine((float)sx,(float)sy,(float)(sx - vx*20),(float)(sy -vy*20),painter2);
+
+
+        }
 
 
         //canvas.drawBitmap(resources.background, xPos,yPos,painter);
@@ -209,6 +215,8 @@ public class WorldThread extends Thread{
 
     private double sx= 0;
     private double sy = 0;
+    private double ccx= 0;
+    private double ccy = 0;
 
     public boolean onTouchEvent(MotionEvent e){
 
@@ -216,6 +224,8 @@ public class WorldThread extends Thread{
             sx = e.getX();
             sy = e.getY();
         }
+        ccx = e.getX();
+        ccy = e.getY();
         double dx = (int)(e.getX()-sx);
         double dy = (int)(e.getY()-sy);
         vx = (int)( -0.05 * dx);
