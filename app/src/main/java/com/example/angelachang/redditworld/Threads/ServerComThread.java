@@ -33,7 +33,7 @@ public class ServerComThread extends Thread{
             new ServerOutThread(r).start();
 
             while(true){
-                String d = is.readLine().trim();
+                String d = is.readLine();
 
                 int currentToken = 0;
                 System.out.println("FAGET"+ d);

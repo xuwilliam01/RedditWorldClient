@@ -21,7 +21,7 @@ public class ServerOutThread extends Thread{
         while(true){
             try {
                 if (!(oldx == WorldThread.xPos && oldy == WorldThread.yPos)) {
-                    fr.println("P " + WorldThread.xPos + " " + WorldThread.yPos + WorldView.thread.getSpriteType() + "  " + WorldView.thread.getSpriteNum());
+                    fr.println("P " + WorldThread.xPos + " " + WorldThread.yPos + " " + WorldView.thread.getSpriteType() + " " + WorldView.thread.getSpriteNum());
                     fr.flush();
                     oldx = WorldThread.xPos;
                     oldy = WorldThread.yPos;
@@ -29,6 +29,7 @@ public class ServerOutThread extends Thread{
 
                 for(String s : WorldActivity.getEvent()){
                     fr.println(s);
+                    System.out.println("LOLLOL"+ s);
                     fr.flush();
                 }
                 //System.
