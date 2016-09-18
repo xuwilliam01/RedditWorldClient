@@ -5,9 +5,12 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.graphics.Typeface;
 
 import com.example.angelachang.redditworld.R;
+
+import java.util.ArrayList;
 
 /**
  * Created by angelachang on 9/17/16.
@@ -21,7 +24,8 @@ public class Post {
     private int m_score;
 
     private Bitmap m_image;
-    ;
+    private ArrayList<String> displayedText=new ArrayList<String>();
+    private boolean formatted=false;
 
     public String getTitle(){
         return m_title;
@@ -76,6 +80,7 @@ public class Post {
     }
 
 
+
     public void Display(Canvas canvas, Paint painter, int offsetX, int offsetY, int screenX, int screenY,Bitmap image){ //draws the post
         int x = offsetX -m_x+ (screenX/2);
         int y = offsetY-m_y + (screenY/2);
@@ -87,8 +92,42 @@ public class Post {
 
 
         //format the string to fit
+        if (!formatted) {
 
-        canvas.drawText(m_score +": "+m_title, x+20, y+125, painter);
+            String text = m_score + ": " + m_title;
+            String result="";
+            int nCnt=1;
+            for (int i=0; i < text.length();i++){
+                if (i%21==0){
+                    displayedText.add(result);
+                    result="";
+                    nCnt+=1;
+                    if (nCnt==5) {
+                        displayedText.add("...");
+                        break;
+                    }
+                }
+
+                result+=String.valueOf(text.charAt(i));
+            }
+            if (!result.equals("")){
+                displayedText.add(result);
+            }
+            formatted=true;
+            //displayedText=result;
+        }else{
+            int i =0;
+            for (String t: displayedText) {
+                canvas.drawText(t, x + 20, y + 75+50*i, painter);
+                i+=1;
+            }
+        }
+
+
+
+
+
+
     }
 
     public void Open(){ //opens the whole post for viewing

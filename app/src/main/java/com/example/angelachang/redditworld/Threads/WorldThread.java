@@ -74,7 +74,7 @@ public class WorldThread extends Thread{
 
         //test
 
-        Post p = new Post(10,200,200,"test","This is a reddit post!",420);
+        Post p = new Post(10,200,200,"test","This is a reddit post! This is a reddit post! This is a reddit post! This is a reddit post! This is a reddit post!",420);
         postList.add(p);
 
     }
