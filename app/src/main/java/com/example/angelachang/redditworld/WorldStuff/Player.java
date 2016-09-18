@@ -39,8 +39,6 @@ public class Player {
         m_message = mes;
         m_image = mg;
 
-
-
     }
 
     public int getID(){
