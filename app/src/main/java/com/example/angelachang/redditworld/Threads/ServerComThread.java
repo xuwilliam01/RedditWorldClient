@@ -40,6 +40,7 @@ public class ServerComThread extends Thread{
                 String[] b = d.split(" ");
                 for(; currentToken < b.length; ) {
                     if (b[currentToken].equals("P")) {
+                        System.out.println(d);
                         currentToken++;
                         WorldActivity.getDataProvider().addPlayer(new Player(Integer.parseInt(b[currentToken++]), Integer.parseInt(b[currentToken++]), Integer.parseInt(b[currentToken++]), Integer.parseInt(b[currentToken++]),Integer.parseInt(b[currentToken++]), b[currentToken++], b[currentToken++]));
                     } else if (b[currentToken].equals("S")) {
@@ -50,7 +51,7 @@ public class ServerComThread extends Thread{
                         WorldThread.xPos = Integer.parseInt(b[currentToken++]);
                         WorldThread.yPos = Integer.parseInt(b[currentToken++]);
                     }
-                    System.out.println("Current" + currentToken);
+                    //System.out.println("Current" + currentToken);
                 }
             }
 

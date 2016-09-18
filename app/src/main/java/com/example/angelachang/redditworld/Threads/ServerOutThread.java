@@ -22,12 +22,16 @@ public class ServerOutThread extends Thread{
             try {
                 if (!(oldx == WorldThread.xPos && oldy == WorldThread.yPos)) {
                     fr.println("P " + WorldThread.xPos + " " + WorldThread.yPos);
-                    for(String s : WorldActivity.getEvent())fr.println(s);
-                    //System.out.println("P " + WorldThread.xPos + " " + WorldThread.yPos);
                     fr.flush();
                     oldx = WorldThread.xPos;
                     oldy = WorldThread.yPos;
                 }
+
+                for(String s : WorldActivity.getEvent()){
+                    fr.println(s);
+                    fr.flush();
+                }
+                //System.
                 Thread.sleep(100);
             }catch(Exception e){
                 e.printStackTrace();
