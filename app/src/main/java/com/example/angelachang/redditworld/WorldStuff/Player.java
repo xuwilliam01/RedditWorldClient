@@ -106,8 +106,8 @@ public class Player {
       height = image.getHeight();
         width = image.getWidth();
 
-        int x = offsetX -m_x+ (screenX/2) ;// + image.getWidth()/2 ;
-        int y = offsetY-m_y + (screenY/2) ;//+ image.getHeight()/2;
+        int x = offsetX -m_x+ (screenX/2)  +image.getWidth()/2 ;
+        int y = offsetY-m_y + (screenY/2)  +image.getHeight()/2;
 
         canvas.drawBitmap(image, x,y,painter);
         painter.setTextSize(50);
