@@ -10,6 +10,10 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 
 import com.example.angelachang.redditworld.ImageResources;
+import com.example.angelachang.redditworld.WorldStuff.Player;
+import com.example.angelachang.redditworld.WorldStuff.Post;
+
+import java.util.ArrayList;
 
 /**
  * Created by oscar on 9/17/16.
@@ -44,6 +48,13 @@ public class WorldThread extends Thread{
 
     private double prevDeltaTime=0;
     private double deltaTime=0;//time elapsed between frames
+
+    ArrayList<Post> postList = new ArrayList<Post>();
+
+    ArrayList<Player> playerList = new ArrayList<Player>();
+
+
+
 
     ImageResources resources;
     public WorldThread(SurfaceHolder surfaceHolder, Context context,
@@ -106,6 +117,9 @@ public class WorldThread extends Thread{
 
         animatePlayer(canvas);
 
+        displayPosts(canvas);
+        displayPlayers(canvas);
+
 
         //canvas.drawBitmap(resources.background, xPos,yPos,painter);
 
@@ -115,9 +129,17 @@ public class WorldThread extends Thread{
 
 
     }
+    public void displayPosts(Canvas canvas){
+        for (Post p : postList){
+            p.Display(canvas,painter,xPos,yPos,resources.screenX, resources.screenY);
+        }
+    }
+
+    public void displayPlayers(Canvas canvas){
+
+    }
 
     public void animatePlayer(Canvas canvas){
-
 
 
         long t = System.currentTimeMillis();

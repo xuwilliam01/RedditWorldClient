@@ -17,7 +17,7 @@ public class ImageResources {
 
     public int screenX, screenY; //width and height of the screen
 
-    public Bitmap background, tree, rock;
+    public Bitmap background, tree, rock, signpost;
 
     /**
      * Load images here for use in world view.
@@ -59,6 +59,8 @@ public class ImageResources {
         playerSpritesRight[3]=BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_0_3);
         playerSpritesRight[4]=BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_0_4);
 
+
+        signpost= BitmapFactory.decodeResource(ctx.getResources(), R.drawable.signpost);
         //background=ResizeBitmap(background, 10);
     }
 

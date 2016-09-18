@@ -1,40 +1,35 @@
 package com.example.angelachang.redditworld.WorldStuff;
 
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+
 /**
  * Created by angelachang on 9/17/16.
  */
 public class Post {
-    private int m_ID;
-    private int m_x;
-    private int m_y;
-    private String m_URL;
+    private int m_id;
+    private int m_x; //relative to 0,0
+    private int m_y; //relative to 0,0
     private String m_title;
-    private int m_upvotes;
+    private String m_url;
     private int m_score;
+
+    private Bitmap m_image;
 
     public String getTitle(){
         return m_title;
     }
     public String getUrl(){
-        return m_URL;
+        return m_url;
     }
     public int getScore(){
         return m_score;
     }
-    private String m_image;
 
-    public Post(int a, int x, int y, String url, String title, int upv){
 
-        m_ID = a;
-        m_x = x;
-        m_y = y;
-        m_URL = url;
-        m_title = title;
-        m_upvotes = upv;
-
-    }
     public int getID(){
-        return m_ID;
+        return m_id;
     }
 
     public int getX(){
@@ -45,17 +40,12 @@ public class Post {
         return m_y;
     }
 
-    public String getURL(){
-        return m_URL;
-    }
-
-
-    public int getUpvotes(){
-        return m_upvotes;
+    public Bitmap getImage(){
+        return m_image;
     }
 
     public void setID(int id){
-        m_ID= id;
+        m_id = id;
     }
 
     public void setX(int x){
@@ -66,7 +56,29 @@ public class Post {
         m_y=y;
     }
 
-    public void setImage(String image){
+    public void setImage(Bitmap image){
         m_image = image;
+    }
+
+    public Post(int id, int x, int y, String url, String title, int score){
+        m_id = id;
+        m_x = x;
+        m_y = y;
+        m_url = url;
+        m_title = title;
+        m_score = score;
+    }
+
+    public void Display(Canvas canvas, Paint painter, int offsetX, int offsetY, int screenX, int screenY){ //draws the post
+        int x = m_x - offsetX + (screenX/2);
+        int y = m_y - offsetY + (screenY/2);
+
+        canvas.drawBitmap(m_image, x,y,painter);
+
+    }
+
+    public void Open(){ //opens the whole post for viewing
+
+
     }
 }
