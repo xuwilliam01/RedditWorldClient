@@ -82,6 +82,7 @@ public class WorldActivity extends AppCompatActivity {
         if(!message.equals("")){
             t.setText("");
         }
+        WorldActivity.addEvent("S " + message.trim());
 
     }
 
