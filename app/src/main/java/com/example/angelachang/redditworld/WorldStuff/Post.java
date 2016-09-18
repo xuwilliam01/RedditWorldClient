@@ -13,6 +13,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.example.angelachang.redditworld.R;
+import com.example.angelachang.redditworld.Views.WorldView;
 
 import java.util.ArrayList;
 
@@ -90,7 +91,7 @@ public class Post {
         int y = offsetY-m_y + (screenY/2);//-image.getHeight()/2;
 
         canvas.drawBitmap(image, x,y,painter);
-        painter.setTextSize(50);
+        painter.setTextSize(45);
 
         painter.setColor(Color.BLACK);
 
@@ -98,11 +99,11 @@ public class Post {
         //format the string to fit
         if (!formatted) {
 
-            String text = m_score + ": " + m_title;
+            String text = m_title;
             String result="";
             int nCnt=1;
             for (int i=0; i < text.length();i++){
-                if (i%21==0){
+                if (i%18==0){
                     displayedText.add(result);
                     result="";
                     nCnt+=1;
@@ -122,15 +123,30 @@ public class Post {
         }else{
             int i =0;
             for (String t: displayedText) {
-                canvas.drawText(t, x + 20, y + 75+50*i, painter);
+                canvas.drawText(t, x + 30, y + 75+50*i, painter);
                 i+=1;
             }
         }
+        painter.setColor(Color.GREEN);
+        canvas.drawText(String.valueOf(m_score), x+image.getWidth()/2 -50, y + 275, painter);
 
+        CheckPress(image.getWidth(),image.getHeight());
     }
+    public void CheckPress(int imageX, int imageY){
+        int x = (int)((WorldView)WorldActivity.rootview.findViewById(R.id.view)).thread.sx;
+        int y = (int)((WorldView)WorldActivity.rootview.findViewById(R.id.view)).thread.sy;
 
+        if (x>= m_x - imageX/2 && x <= m_x + imageX/2){
+            if(y>= m_y - imageY/2 && y <= m_y + imageY/2){
+                //this is pressed:
+                Open();
+            }
+        }
+    }
     public void Open(){ //opens the whole post for viewing
         WorldActivity.rootview.loadWebView(m_title,m_url);
 
     }
+
+
 }
