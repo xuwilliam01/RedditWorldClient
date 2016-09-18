@@ -36,11 +36,11 @@ public class ServerComThread extends Thread{
                 String d = is.readLine();
 
                 int currentToken = 0;
-                System.out.println("FAGET"+ d);
+                //System.out.println("FAGET"+ d);
                 String[] b = d.split(" ");
                 for(; currentToken < b.length; ) {
                     if (b[currentToken].equals("P")) {
-                        System.out.println(d);
+                        //System.out.println(d);
                         currentToken++;
                         WorldActivity.getDataProvider().addPlayer(new Player(Integer.parseInt(b[currentToken++]), Integer.parseInt(b[currentToken++]), Integer.parseInt(b[currentToken++]), Integer.parseInt(b[currentToken++]),Integer.parseInt(b[currentToken++]), b[currentToken++], b[currentToken++]));
                     } else if (b[currentToken].equals("S")) {
