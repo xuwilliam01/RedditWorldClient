@@ -14,6 +14,17 @@ public class ImageResources {
     public Bitmap[] playerSpritesRight = new Bitmap[5]; //stores the playerSprites
     public Bitmap[] playerSpritesLeft= new Bitmap[5];
 
+    public Bitmap[] psr0 = new Bitmap[5]; //stores the playerSprites
+    public Bitmap[] psl0= new Bitmap[5];
+
+    public Bitmap[] psr1 = new Bitmap[5]; //stores the playerSprites
+    public Bitmap[] psl1= new Bitmap[5];
+
+    public Bitmap[] psr2 = new Bitmap[5]; //stores the playerSprites
+    public Bitmap[] psl2= new Bitmap[5];
+
+    public Bitmap[] psr3 = new Bitmap[5]; //stores the playerSprites
+    public Bitmap[] psl3= new Bitmap[5];
 
     public int screenX, screenY; //width and height of the screen
 
@@ -35,17 +46,7 @@ public class ImageResources {
 
         //load player sprites
         int scale=1;
-        /*playerSpritesLeft[0]=ResizeBitmap(BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_0_0),scale);
-        playerSpritesLeft[1]=ResizeBitmap(BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_0_1),scale);
-        playerSpritesLeft[2]=ResizeBitmap(BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_0_2),scale);
-        playerSpritesLeft[3]=ResizeBitmap(BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_0_3),scale);
-        playerSpritesLeft[4]=ResizeBitmap(BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_0_4),scale);
 
-        playerSpritesRight[0]=ResizeBitmap(BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_0_0),scale);
-        playerSpritesRight[1]=ResizeBitmap(BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_0_1),scale);
-        playerSpritesRight[2]=ResizeBitmap(BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_0_2),scale);
-        playerSpritesRight[3]=ResizeBitmap(BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_0_3),scale);
-        playerSpritesRight[4]=ResizeBitmap(BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_0_4),scale);*/
 
         int rnd = (int)(Math.random() * 4);
         System.out.println(rnd);
@@ -101,6 +102,61 @@ public class ImageResources {
             playerSpritesRight[3] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_3_3);
             playerSpritesRight[4] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_3_4);
         }
+
+
+
+        //other
+        psl0[0] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_0_0);
+        psl0[1] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_0_1);
+        psl0[2] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_0_2);
+        psl0[3] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_0_3);
+        psl0[4] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_0_4);
+
+        psr0[0] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_0_0);
+        psr0[1] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_0_1);
+        psr0[2] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_0_2);
+        psr0[3] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_0_3);
+        psr0[4] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_0_4);
+
+
+        psl1[0] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_1_0);
+        psl1[1] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_1_1);
+        psl1[2] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_1_2);
+        psl1[3] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_1_3);
+        psl1[4] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_1_4);
+
+        psr1[0] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_1_0);
+        psr1[1] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_1_1);
+        psr1[2] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_1_2);
+        psr1[3] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_1_3);
+        psr1[4] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_1_4);
+
+        psl2[0] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_2_0);
+        psl2[1] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_2_1);
+        psl2[2] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_2_2);
+        psl2[3] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_2_3);
+        psl2[4] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_2_4);
+
+        psr2[0] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_2_0);
+        psr2[1] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_2_1);
+        psr2[2] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_2_2);
+        psr2[3] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_2_3);
+        psr2[4] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_2_4);
+
+        psl3[0] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_3_0);
+        psl3[1] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_3_1);
+        psl3[2] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_3_2);
+        psl3[3] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_3_3);
+        psl3[4] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_3_4);
+
+        psr3[0] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_3_0);
+        psr3[1] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_3_1);
+        psr3[2] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_3_2);
+        psr3[3] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_3_3);
+        psr3[4] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_3_3);
+
+
+
         signpost= BitmapFactory.decodeResource(ctx.getResources(), R.drawable.signpostsmall);
         //background=ResizeBitmap(background, 10);
     }

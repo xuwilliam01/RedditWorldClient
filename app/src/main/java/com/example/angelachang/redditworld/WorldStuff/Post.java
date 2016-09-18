@@ -130,19 +130,8 @@ public class Post {
         painter.setColor(Color.GREEN);
         canvas.drawText(String.valueOf(m_score), x+image.getWidth()/2 -50, y + 275, painter);
 
-        CheckPress(image.getWidth(),image.getHeight());
     }
-    public void CheckPress(int imageX, int imageY){
-        int x = (int)((WorldView)WorldActivity.rootview.findViewById(R.id.view)).thread.sx;
-        int y = (int)((WorldView)WorldActivity.rootview.findViewById(R.id.view)).thread.sy;
 
-        if (x>= m_x - imageX/2 && x <= m_x + imageX/2){
-            if(y>= m_y - imageY/2 && y <= m_y + imageY/2){
-                //this is pressed:
-                Open();
-            }
-        }
-    }
     public void Open(){ //opens the whole post for viewing
         WorldActivity.rootview.loadWebView(m_title,m_url);
 
