@@ -27,6 +27,7 @@ public class WorldActivity extends AppCompatActivity {
 
     private static ArrayList<String> eventList = new ArrayList<String>();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -64,8 +65,15 @@ public class WorldActivity extends AppCompatActivity {
         String message = t.getText().toString();
         if(!message.equals("chat")){
             addEvent(message);
+
+            ((WorldView) rootview.findViewById(R.id.view)).thread.playerMessage = message;
+
             t.setText("chat");
         }
+
+    }
+
+    public void ScreenPressed(View v){
 
     }
 

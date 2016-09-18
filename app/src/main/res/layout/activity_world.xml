@@ -30,7 +30,9 @@
             android:layout_height="fill_parent" android:id="@+id/view"
         android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/menubutton"
-        android:layout_alignEnd="@+id/menubutton" />
+        android:layout_alignEnd="@+id/menubutton"
+        android:onClick="ScreenPressed"
+        />
 
     <EditText
         android:layout_width="wrap_content"

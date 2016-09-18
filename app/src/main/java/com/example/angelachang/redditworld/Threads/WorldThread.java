@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
@@ -57,6 +58,10 @@ public class WorldThread extends Thread{
     ArrayList<Player> playerList = new ArrayList<Player>();
 
 
+    public String playerMessage ="";
+    double messageTimeStart;
+    double messageTimeElapsed;
+    boolean displayMessage=false;
 
     ImageResources resources;
     public WorldThread(SurfaceHolder surfaceHolder, Context context, Handler handler) {
@@ -74,11 +79,11 @@ public class WorldThread extends Thread{
 
         //test
 
-        Post p = new Post(10,32200,32200,"test","This is a reddit post! This is a reddit post! This is a reddit post! This is a reddit post! This is a reddit post!",420);
+        /*Post p = new Post(10,32200,32200,"test","This is a reddit post! This is a reddit post! This is a reddit post! This is a reddit post! This is a reddit post!",420);
         postList.add(p);
 
         Player pp = new Player(1,32400,32400,9);
-        playerList.add(pp);
+        playerList.add(pp);*/
 
     }
 
@@ -215,6 +220,29 @@ public class WorldThread extends Thread{
                 canvas.drawBitmap(resources.playerSpritesLeft[curPlayerSprite], resources.screenX/2 - resources.playerSpritesLeft[curPlayerSprite].getWidth()/2,resources.screenY/2- resources.playerSpritesLeft[curPlayerSprite].getHeight()/2,painter);
             }
         }
+        System.out.println(playerMessage);
+        if (!playerMessage.equals("") && !displayMessage){
+            displayMessage=true;
+            messageTimeStart=System.currentTimeMillis();
+            messageTimeElapsed = 3000 + 250 * playerMessage.length();
+        }
+
+        if(displayMessage){
+            painter.setColor(Color.WHITE);
+            painter.setTextSize(50);
+            Rect r= new Rect();
+            painter.getTextBounds(playerMessage,0,playerMessage.length(),r);
+            canvas.drawText(playerMessage,resources.screenX/2 - r.width()/2,resources.screenY/2-200,painter);
+        }
+
+        if (displayMessage && System.currentTimeMillis()-messageTimeStart > messageTimeElapsed){
+            messageTimeElapsed=0;
+            messageTimeStart=0;
+            displayMessage=false;
+            playerMessage ="";
+        }
+
+
     }
 
 
@@ -263,8 +291,8 @@ public class WorldThread extends Thread{
 
     }
 
-    private double sx= 0;
-    private double sy = 0;
+    public double sx= 0;
+    public double sy = 0;
 
     public boolean onTouchEvent(MotionEvent e){
 
