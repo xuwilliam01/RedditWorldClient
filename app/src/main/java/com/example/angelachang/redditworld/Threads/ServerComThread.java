@@ -50,6 +50,9 @@ public class ServerComThread extends Thread{
                         currentToken++;
                         WorldThread.xPos = Integer.parseInt(b[currentToken++]);
                         WorldThread.yPos = Integer.parseInt(b[currentToken++]);
+                    } else if(b[currentToken].equals("Y")){
+                        currentToken++;
+                        WorldActivity.getDataProvider().setID(Integer.parseInt(b[currentToken++]));
                     }
                     //System.out.println("Current" + currentToken);
                 }

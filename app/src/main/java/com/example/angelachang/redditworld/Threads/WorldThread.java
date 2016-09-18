@@ -165,38 +165,13 @@ public class WorldThread extends Thread{
         for (Player p : WorldActivity.getDataProvider().getPlayers()){
             if(p == null)continue;
             System.out.println("DRAWING PLAYERSSS");
-            int i=p.getFrame();
-            int type = p.getImage();
-            if (type==0){
-                if (i <5) {
-                    p.Display(canvas, painter, xPos, yPos, resources.screenX, resources.screenY, resources.psl0[i]);
-                }else{
-                    i-=5;
-                    p.Display(canvas, painter, xPos, yPos, resources.screenX, resources.screenY, resources.psr0[i]);
-                }
-            }else if(type==1){
-                if (i <5) {
-                    p.Display(canvas, painter, xPos, yPos, resources.screenX, resources.screenY, resources.psl1[i]);
-                }else{
-                    i-=5;
-                    p.Display(canvas, painter, xPos, yPos, resources.screenX, resources.screenY, resources.psr1[i]);
-                }
-            }else if(type ==2){
-                if (i <5) {
-                    p.Display(canvas, painter, xPos, yPos, resources.screenX, resources.screenY, resources.psl2[i]);
-                }else{
-                    i-=5;
-                    p.Display(canvas, painter, xPos, yPos, resources.screenX, resources.screenY, resources.psr2[i]);
-                }
+            int i=p.getImage();
+            if (i <5) {
+                p.Display(canvas, painter, xPos, yPos, resources.screenX, resources.screenY, resources.playerSpritesLeft[i]);
             }else{
-                if (i <5) {
-                    p.Display(canvas, painter, xPos, yPos, resources.screenX, resources.screenY, resources.psl3[i]);
-                }else{
-                    i-=5;
-                    p.Display(canvas, painter, xPos, yPos, resources.screenX, resources.screenY, resources.psr3[i]);
-                }
+                i-=5;
+                p.Display(canvas, painter, xPos, yPos, resources.screenX, resources.screenY, resources.playerSpritesRight[i]);
             }
-
         }
     }
 
@@ -313,8 +288,6 @@ public class WorldThread extends Thread{
         }
         if (collision != null){
             //coliision with collision object DO SOMETHING
-            collision.Open();
-
         }
 
     }
