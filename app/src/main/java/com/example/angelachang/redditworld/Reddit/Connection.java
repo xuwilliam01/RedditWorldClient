@@ -58,11 +58,10 @@ public class Connection {
     }
 
     public static void main(String[] args) {
-        /*PostsList postsList = new PostsList("uwaterloo");
-        ArrayList<Post> list = postsList.fetch();
-        for (Post post : list) {
-            System.out.println(post.getUrl());
-        }*/
-
+        CommentProcessor cp = new CommentProcessor("https://www.reddit.com/r/uwaterloo/comments/52updr/admission_megathread/");
+        ArrayList<Comment> comments = cp.fetchComments();
+        for (Comment comment : comments) {
+            System.out.println(comment.text);
+        }
     }
 }
