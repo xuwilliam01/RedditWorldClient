@@ -4,7 +4,7 @@ package com.example.angelachang.redditworld.WorldStuff;
  * Created by angelachang on 9/17/16.
  */
 public class Post {
-    private int m_id;
+    private int m_ID;
     private int m_x;
     private int m_y;
     private String m_URL;
@@ -16,7 +16,7 @@ public class Post {
         return m_title;
     }
     public String getUrl(){
-        return m_url;
+        return m_URL;
     }
     public int getScore(){
         return m_score;
@@ -34,7 +34,7 @@ public class Post {
 
     }
     public int getID(){
-        return m_id;
+        return m_ID;
     }
 
     public int getX(){
@@ -49,16 +49,13 @@ public class Post {
         return m_URL;
     }
 
-    public String getTitle(){
-        return m_title;
-    }
 
     public int getUpvotes(){
         return m_upvotes;
     }
 
     public void setID(int id){
-        m_id = id;
+        m_ID= id;
     }
 
     public void setX(int x){
