@@ -4,12 +4,24 @@ package com.example.angelachang.redditworld.WorldStuff;
  * Created by angelachang on 9/17/16.
  */
 public class Post {
-    private int m_ID;
+    private int m_id;
     private int m_x;
     private int m_y;
     private String m_URL;
     private String m_title;
     private int m_upvotes;
+    private int m_score;
+
+    public String getTitle(){
+        return m_title;
+    }
+    public String getUrl(){
+        return m_url;
+    }
+    public int getScore(){
+        return m_score;
+    }
+    private String m_image;
 
     public Post(int a, int x, int y, String url, String title, int upv){
 
@@ -22,7 +34,7 @@ public class Post {
 
     }
     public int getID(){
-        return m_ID;
+        return m_id;
     }
 
     public int getX(){
@@ -45,8 +57,8 @@ public class Post {
         return m_upvotes;
     }
 
-    public void setID(int ID){
-        m_ID = ID;
+    public void setID(int id){
+        m_id = id;
     }
 
     public void setX(int x){
@@ -57,11 +69,7 @@ public class Post {
         m_y=y;
     }
 
-    public void setURL(String image){
-        m_URL = image;
+    public void setImage(String image){
+        m_image = image;
     }
-
-    public void setTitle(String s) { m_title = s; }
-
-    public void setUpvotes(int s) { m_upvotes = s; }
 }
