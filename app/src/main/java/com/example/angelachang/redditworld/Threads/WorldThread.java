@@ -32,10 +32,17 @@ public class WorldThread extends Thread{
     private int prevX=0;
     private int prevY=0;
 
+    private long prevTime=0;
+    String dir="left";//direction of player
+    int curPlayerSprite=0; //indicates the index of playerSprite
+
     int moveSpeed=10;
     public boolean mleft, mright,mup, mdown;
 
     private SurfaceHolder mSurfaceHolder;
+
+    private double prevDeltaTime=0;
+    private double deltaTime=0;//time elapsed between frames
 
     ImageResources resources;
     public WorldThread(SurfaceHolder surfaceHolder, Context context,
@@ -61,6 +68,12 @@ public class WorldThread extends Thread{
                         if (running){
                             doDraw(c);
                             doScroll();
+
+                            if (prevDeltaTime==0){//initialize
+                                prevDeltaTime= System.currentTimeMillis();
+                            }
+                            deltaTime=System.currentTimeMillis()-prevDeltaTime;
+                            prevDeltaTime = System.currentTimeMillis();
                         }
                     }
                 }
@@ -78,21 +91,53 @@ public class WorldThread extends Thread{
         // so this is like clearing the screen.
         canvas.drawColor(Color.BLACK);
         canvas.drawRect(20,30,x++,50,painter);
-       // System.out.println(backgroundX+" "+backgroundY);
 
         //draw the background!
 
         scrollBackground(canvas); //draws the background accordingly
 
+        animatePlayer(canvas);
 
 
         //canvas.drawBitmap(resources.background, xPos,yPos,painter);
 
-        //System.out.println(prevX+" "+prevY+" "+xPos+" "+yPos);
+
         prevX=xPos;
         prevY=yPos;
 
 
+    }
+
+    public void animatePlayer(Canvas canvas){
+
+
+
+        long t = System.currentTimeMillis();
+        if (t-prevTime>= 75){
+            prevTime=t;
+            curPlayerSprite+=1;
+        }
+
+
+        if (curPlayerSprite>4){
+            curPlayerSprite=0;
+        }
+
+        if (xPos-prevX >0){//moving left
+            dir="left";
+            canvas.drawBitmap(resources.playerSpritesLeft[curPlayerSprite], resources.screenX/2 - resources.playerSpritesLeft[curPlayerSprite].getWidth()/2,resources.screenY/2- resources.playerSpritesLeft[curPlayerSprite].getHeight()/2,painter);
+
+        }else if (xPos-prevX<0){//moving right
+            dir="right";
+            canvas.drawBitmap(resources.playerSpritesRight[curPlayerSprite], resources.screenX/2 - resources.playerSpritesRight[curPlayerSprite].getWidth()/2,resources.screenY/2- resources.playerSpritesRight[curPlayerSprite
+                    ].getHeight()/2,painter);
+        }else{
+            if (dir.equals("right")){
+                canvas.drawBitmap(resources.playerSpritesRight[0], resources.screenX/2 - resources.playerSpritesRight[0].getWidth()/2,resources.screenY/2- resources.playerSpritesRight[0].getHeight()/2,painter);
+            }else{
+                canvas.drawBitmap(resources.playerSpritesLeft[0], resources.screenX/2 - resources.playerSpritesLeft[0].getWidth()/2,resources.screenY/2- resources.playerSpritesLeft[0].getHeight()/2,painter);
+            }
+        }
     }
 
 
@@ -169,8 +214,8 @@ public class WorldThread extends Thread{
         if(mdown){
             yPos-=moveSpeed;
         }*/
-        xPos += vx;
-        yPos += vy;
+        xPos += vx*(deltaTime/25f);
+        yPos += vy*(deltaTime/25f);
 
     }
 
