@@ -74,10 +74,10 @@ public class WorldThread extends Thread{
 
         //test
 
-        Post p = new Post(10,200,200,"test","This is a reddit post! This is a reddit post! This is a reddit post! This is a reddit post! This is a reddit post!",420);
+        Post p = new Post(10,32200,32200,"test","This is a reddit post! This is a reddit post! This is a reddit post! This is a reddit post! This is a reddit post!",420);
         postList.add(p);
 
-        Player pp = new Player(1,400,400,9);
+        Player pp = new Player(1,32400,32400,9);
         playerList.add(pp);
 
     }
