@@ -47,6 +47,7 @@ public class Post {
         return m_id;
     }
 
+    private boolean opened=false;
     public int getX(){
         return m_x;
     }
@@ -130,10 +131,30 @@ public class Post {
         painter.setColor(Color.GREEN);
         canvas.drawText(String.valueOf(m_score), x+image.getWidth()/2 -50, y + 275, painter);
 
+        int x1 = (int)((WorldView)WorldActivity.rootview.findViewById(R.id.view)).thread.sx;
+        int y1 = (int)((WorldView)WorldActivity.rootview.findViewById(R.id.view)).thread.sy;
+        if (x1>= x  && x1 <= x + image.getWidth()){
+            if(y1>= y  && y1 <= y + image.getHeight()){
+                if(!opened) {
+                    opened=true;
+                    Open();
+                }
+            }
+        }else{
+            opened=false;
+        }
+
     }
 
+
+
     public void Open(){ //opens the whole post for viewing
-        WorldActivity.rootview.loadWebView(m_title,m_url);
+
+        WorldActivity.rootview.runOnUiThread(new Runnable(){
+            public void run(){
+                WorldActivity.rootview.loadWebView(m_title,m_url);
+            }
+        });
 
     }
 

@@ -27,6 +27,7 @@ public class WorldActivity extends AppCompatActivity {
 
     private static ArrayList<String> eventList = new ArrayList<String>();
 
+    private boolean hasWebView=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +38,7 @@ public class WorldActivity extends AppCompatActivity {
         rootview=this;
         ServerComThread c = new ServerComThread();
         c.start();
-
+        loadWebView("title","http://www.google.com");
 
     }
 
@@ -99,11 +100,14 @@ public class WorldActivity extends AppCompatActivity {
 */
 
     public void loadWebView(String title, String url){
+        if (hasWebView){
+            return;
+        }
 
-        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        AlertDialog.Builder alert = new AlertDialog.Builder(rootview);
         alert.setTitle(title);
 
-        WebView wv = new WebView(this);
+        WebView wv = new WebView(rootview);
         wv.loadUrl(url);
         wv.setWebViewClient(new WebViewClient() {
             @Override
@@ -118,6 +122,7 @@ public class WorldActivity extends AppCompatActivity {
         alert.setNegativeButton("Done", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int id) {
+                hasWebView=false;
                 dialog.dismiss();
             }
         });
