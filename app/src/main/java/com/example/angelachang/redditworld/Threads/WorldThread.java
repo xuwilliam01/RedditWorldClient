@@ -30,13 +30,13 @@ public class WorldThread extends Thread{
 
     int x = 0;
 
-    public static int xPos=0;
-    public static int yPos=0;
+    public static int xPos=32000;
+    public static int yPos=32000;
     public float vx = 0;
     public float vy = 0;
 
-    private int prevX=0;
-    private int prevY=0;
+    private int prevX=32000;
+    private int prevY=32000;
 
     private long prevTime=0;
     String dir="left";//direction of player

@@ -32,19 +32,20 @@ public class ServerComThread extends Thread{
 
             new ServerOutThread(r).start();
 
-            while(is.ready()){
-                String d = is.readLine();
+            while(true){
+                String d = is.readLine().trim();
+                System.out.println(d);
                 String[] b = d.split(" ");
                 if(b[0].equals("P")){
                     WorldActivity.getDataProvider().addPlayer(new Player(Integer.parseInt(b[1]), Integer.parseInt(b[2]),Integer.parseInt(b[3]),Integer.parseInt(b[4]),b[5], b[6]));
                 }
                 else if(b[0].equals("S")){
-                    WorldActivity.getDataProvider().addPost(new Post(Integer.parseInt(b[1]), Integer.parseInt(b[2]),Integer.parseInt(b[3]),b[4],b[5],Integer.parseInt(b[6])));
+                    WorldActivity.getDataProvider().addPost(new Post(Integer.parseInt(b[1]), Integer.parseInt(b[2]),Integer.parseInt(b[3]),b[4],b[5].replaceAll("_", " "),Integer.parseInt(b[6])));
+                }else if(b[0].equals("T")){
+                    WorldThread.xPos = Integer.parseInt(b[1]);
+                    WorldThread.yPos = Integer.parseInt(b[2]);
                 }
             }
-
-
-           // System.out.println("CONNECTIONSUCCESSFULZ");
 
 
         }catch(Exception e){

@@ -20,7 +20,7 @@ public class ServerOutThread extends Thread{
                 if (!(oldx == WorldThread.xPos && oldy == WorldThread.yPos)) {
                     fr.println("P " + WorldThread.xPos + " " + WorldThread.yPos);
 
-                    System.out.println("P " + WorldThread.xPos + " " + WorldThread.yPos);
+                    //System.out.println("P " + WorldThread.xPos + " " + WorldThread.yPos);
                     fr.flush();
                     oldx = WorldThread.xPos;
                     oldy = WorldThread.yPos;
