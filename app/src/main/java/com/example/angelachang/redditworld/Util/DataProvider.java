@@ -25,6 +25,7 @@ public interface DataProvider {
 
     public int getMyID();
     public void setID(int i);
+    public void removePlayer(int a);
 
 
 

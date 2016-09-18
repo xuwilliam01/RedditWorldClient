@@ -53,6 +53,9 @@ public class ServerComThread extends Thread{
                     } else if(b[currentToken].equals("Y")){
                         currentToken++;
                         WorldActivity.getDataProvider().setID(Integer.parseInt(b[currentToken++]));
+                    } else if(b[currentToken].equals("D")){
+                        currentToken++;
+                        WorldActivity.getDataProvider().
                     }
                     //System.out.println("Current" + currentToken);
                 }
