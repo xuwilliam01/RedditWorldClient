@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
@@ -247,6 +248,16 @@ public class WorldThread extends Thread{
         }
     }
     private void gameLogic(){
+        Bitmap player = resources.playerSpritesLeft[curPlayerSprite];
+        Bitmap signpost = resources.signpost;
+        Post collision = null;
+        for (Post p : WorldActivity.getDataProvider().getPosts()){
+            if(xPos <= p.getX() + signpost.getWidth() && xPos + player.getWidth() >= p.getX() && yPos <= p.getY() + signpost.getHeight() && yPos + player.getHeight() >= p.getY())collision = p;
+        }
+        if (collision != null){
+            //coliision with collision object DO SOMETHING
+        }
+
 
     }
 
