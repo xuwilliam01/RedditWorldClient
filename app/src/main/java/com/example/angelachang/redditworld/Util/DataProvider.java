@@ -20,6 +20,7 @@ public interface DataProvider {
     public Coordinate getPlayerLocation();
 
     public void addPost(Post p);
+    public Post[] getPosts();
 
 
 
