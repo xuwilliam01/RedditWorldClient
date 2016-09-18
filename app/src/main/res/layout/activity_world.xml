@@ -8,7 +8,8 @@
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"        android:text="Top"
+        android:layout_height="wrap_content"
+        android:text="Top"
         android:id="@+id/topbutton"
         android:layout_alignParentTop="true"
         android:background="#B0FF5CE9"
@@ -19,42 +20,51 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="menu"
+        android:text="Go"
         android:background="#B0FF5CE9"
         android:id="@+id/menubutton"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/topbutton"
-        android:layout_alignEnd="@+id/topbutton" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
     <com.example.angelachang.redditworld.Views.WorldView
             android:layout_width="fill_parent"
             android:layout_height="fill_parent" android:id="@+id/view"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/menubutton"
-        android:layout_alignEnd="@+id/menubutton"
         android:onClick="ScreenPressed"
-        />
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/topbutton"
+        android:layout_alignEnd="@+id/topbutton" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/chatbox"
+        android:hint="@string/chatbox"
         android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:background="#80ffffff"
-        android:text="chat"
-        android:layout_alignBottom="@+id/topbutton"
-        />
+        android:background="#70ffffff"
+        android:layout_alignBottom="@+id/sendbutton" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
+        android:background="@color/abc_color_highlight_material"
+        android:id="@+id/sendbutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Send"
-        android:id="@+id/sendbutton"
-        android:layout_alignBottom="@+id/chatbox"
+        android:onClick="SendMessage"
+        android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/chatbox"
-        android:layout_toEndOf="@+id/chatbox"
-        android:onClick="SendMessage"/>
+        android:layout_toEndOf="@+id/chatbox" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/subreddit"
+        android:background="#40ffffff"
+        android:layout_toLeftOf="@+id/menubutton"
+        android:onClick="ChangeSubreddit"
+        android:hint="@string/changesubreddit"
+        android:layout_alignParentBottom="true"
+        android:layout_alignTop="@+id/menubutton" />
 
 </RelativeLayout>

@@ -16,14 +16,14 @@
         android:id="@+id/enterbutton"
         android:onClick="EnterWorld"
         android:layout_below="@+id/editText2"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="55dp" />
+        android:layout_centerHorizontal="true" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editText"
-        android:text="Name"
+        android:hint="username"
+        android:layout_marginTop="99dp"
         android:layout_alignParentTop="true"
         android:layout_alignLeft="@+id/editText2"
         android:layout_alignStart="@+id/editText2"
@@ -36,8 +36,8 @@
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/editText2"
-        android:text="Password"
-        android:layout_below="@+id/editText"
+        android:hint="password"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="58dp" />
+        android:layout_below="@+id/editText" />
+
 </RelativeLayout>
