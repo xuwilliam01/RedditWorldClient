@@ -129,13 +129,18 @@ public class WorldThread extends Thread{
 
         }else if (xPos-prevX<0){//moving right
             dir="right";
-            canvas.drawBitmap(resources.playerSpritesRight[curPlayerSprite], resources.screenX/2 - resources.playerSpritesRight[curPlayerSprite].getWidth()/2,resources.screenY/2- resources.playerSpritesRight[curPlayerSprite
-                    ].getHeight()/2,painter);
-        }else{
+            canvas.drawBitmap(resources.playerSpritesRight[curPlayerSprite], resources.screenX/2 - resources.playerSpritesRight[curPlayerSprite].getWidth()/2,resources.screenY/2- resources.playerSpritesRight[curPlayerSprite].getHeight()/2,painter);
+        }else if(xPos-prevX==0 && yPos-prevY==0){ //still
             if (dir.equals("right")){
                 canvas.drawBitmap(resources.playerSpritesRight[0], resources.screenX/2 - resources.playerSpritesRight[0].getWidth()/2,resources.screenY/2- resources.playerSpritesRight[0].getHeight()/2,painter);
             }else{
                 canvas.drawBitmap(resources.playerSpritesLeft[0], resources.screenX/2 - resources.playerSpritesLeft[0].getWidth()/2,resources.screenY/2- resources.playerSpritesLeft[0].getHeight()/2,painter);
+            }
+        }else{//moving directly up or down
+            if (dir.equals("right")){
+                canvas.drawBitmap(resources.playerSpritesRight[curPlayerSprite], resources.screenX/2 - resources.playerSpritesRight[curPlayerSprite].getWidth()/2,resources.screenY/2- resources.playerSpritesRight[curPlayerSprite].getHeight()/2,painter);
+            }else{
+                canvas.drawBitmap(resources.playerSpritesLeft[curPlayerSprite], resources.screenX/2 - resources.playerSpritesLeft[curPlayerSprite].getWidth()/2,resources.screenY/2- resources.playerSpritesLeft[curPlayerSprite].getHeight()/2,painter);
             }
         }
     }
