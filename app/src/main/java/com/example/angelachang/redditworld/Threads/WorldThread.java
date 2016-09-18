@@ -159,6 +159,7 @@ public class WorldThread extends Thread{
 
     public void displayPlayers(Canvas canvas){
         for (Player p : WorldActivity.getDataProvider().getPlayers()){
+            if (p==null)continue;
             int i=p.getImage();
             if (i <5) {
                 p.Display(canvas, painter, xPos, yPos, resources.screenX, resources.screenY, resources.playerSpritesLeft[i]);
@@ -246,20 +247,6 @@ public class WorldThread extends Thread{
         }
     }
     private void gameLogic(){
-        Bitmap player = resources.playerSpritesLeft[curPlayerSprite];
-        Bitmap signpost = resources.signpost;
-        Post collision = null;
-        for (Post p : WorldActivity.getDataProvider().getPosts()){
-            if(xPos <= p.getX() + signpost.getWidth() &&
-                    xPos + player.getWidth() >= p.getX() &&
-                    yPos <= p.getY() + signpost.getHeight() &&
-                    yPos + player.getHeight() >= p.getY())
-                collision = p;
-        }
-        if (collision != null){
-            //coliision with collision object DO SOMETHING
-        }
-
 
     }
 
