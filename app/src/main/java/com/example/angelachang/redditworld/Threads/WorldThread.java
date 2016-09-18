@@ -5,11 +5,16 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 
 import com.example.angelachang.redditworld.ImageResources;
+import com.example.angelachang.redditworld.WorldStuff.Player;
+import com.example.angelachang.redditworld.WorldStuff.Post;
+
+import java.util.ArrayList;
 
 /**
  * Created by oscar on 9/17/16.
@@ -21,16 +26,17 @@ public class WorldThread extends Thread{
     private final Object mRunLock = new Object(); // dafuq
 
     private Paint painter;
+    private Paint painter2;
 
     int x = 0;
 
-    public int xPos=0;
-    public int yPos=0;
+    public static int xPos=32000;
+    public static int yPos=32000;
     public float vx = 0;
     public float vy = 0;
 
-    private int prevX=0;
-    private int prevY=0;
+    private int prevX=32000;
+    private int prevY=32000;
 
     private long prevTime=0;
     String dir="left";//direction of player
@@ -44,15 +50,36 @@ public class WorldThread extends Thread{
     private double prevDeltaTime=0;
     private double deltaTime=0;//time elapsed between frames
 
+    ArrayList<Post> postList = new ArrayList<Post>();
+
+    ArrayList<Player> playerList = new ArrayList<Player>();
+
+
+
+
     ImageResources resources;
-    public WorldThread(SurfaceHolder surfaceHolder, Context context,
-                       Handler handler) {
+    public WorldThread(SurfaceHolder surfaceHolder, Context context, Handler handler) {
 
         mSurfaceHolder = surfaceHolder;
         painter = new Paint();
         painter.setAntiAlias(true);
         painter.setARGB(255, 0, 255, 0);
+        painter2 = new Paint();
+        painter2.setAntiAlias(true);
+        painter2.setARGB(255, 255, 255, 0);
         resources = new ImageResources(context);
+
+        painter.setTypeface(Typeface.create("monospace",Typeface.BOLD));
+
+
+        //test
+
+        Post p = new Post(10,200,200,"test","This is a reddit post! This is a reddit post! This is a reddit post! This is a reddit post! This is a reddit post!",420);
+        postList.add(p);
+
+        Player pp = new Player(1,400,400,9);
+        playerList.add(pp);
+
     }
 
     public void run() {
@@ -91,13 +118,21 @@ public class WorldThread extends Thread{
         // so this is like clearing the screen.
         canvas.drawColor(Color.BLACK);
         canvas.drawRect(20,30,x++,50,painter);
+        if(sx != -1){
+            canvas.drawCircle((float)sx,(float)sy,10,painter);
+        }
+               // System.out.println(backgroundX+" "+backgroundY);
 
         //draw the background!
 
         scrollBackground(canvas); //draws the background accordingly
 
-        animatePlayer(canvas);
 
+
+        displayPosts(canvas);
+        displayPlayers(canvas);
+
+        animatePlayer(canvas);
 
         //canvas.drawBitmap(resources.background, xPos,yPos,painter);
 
@@ -107,9 +142,25 @@ public class WorldThread extends Thread{
 
 
     }
+    public void displayPosts(Canvas canvas){
+        for (Post p : postList){
+            p.Display(canvas,painter,xPos,yPos,resources.screenX, resources.screenY,resources.signpost);
+        }
+    }
+
+    public void displayPlayers(Canvas canvas){
+        for (Player p : playerList){
+            int i=p.getImage();
+            if (i <5) {
+                p.Display(canvas, painter, xPos, yPos, resources.screenX, resources.screenY, resources.playerSpritesLeft[i]);
+            }else{
+                i-=5;
+                p.Display(canvas, painter, xPos, yPos, resources.screenX, resources.screenY, resources.playerSpritesRight[i]);
+            }
+        }
+    }
 
     public void animatePlayer(Canvas canvas){
-
 
 
         long t = System.currentTimeMillis();
@@ -198,6 +249,8 @@ public class WorldThread extends Thread{
         if(e.getActionMasked() == MotionEvent.ACTION_UP) {
             vx = 0;
             vy = 0;
+            sx = -1;
+            sy = -1;
 
         }
 

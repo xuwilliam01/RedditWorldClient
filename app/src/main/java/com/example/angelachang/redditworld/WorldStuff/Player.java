@@ -1,5 +1,10 @@
 package com.example.angelachang.redditworld.WorldStuff;
 
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Rect;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -11,7 +16,21 @@ public class Player {
     private int m_ID;
     private int m_x;
     private int m_y;
-    private String m_image;
+    private int m_image;
+    private String m_subreddit;
+    private String m_message;
+
+    public Player(int a, int x, int y, int z, String d, String mes){
+
+        m_ID = a;
+        m_x = x;
+        m_y = y;
+        m_image = z;
+        m_subreddit = d;
+        m_message = mes;
+
+
+    }
 
     public int getID(){
         return m_ID;
@@ -25,8 +44,16 @@ public class Player {
         return m_y;
     }
 
-    public String getImage(){
+    public int getImage(){
         return m_image;
+    }
+
+    public String getSubreddit(){
+        return m_subreddit;
+    }
+
+    public String getMessage(){
+        return m_message;
     }
 
     public void setID(int ID){
@@ -41,7 +68,44 @@ public class Player {
         m_y=y;
     }
 
-    public void setImage(String image){
+    public void setImage(int image){
         m_image = image;
+    }
+
+    public void setSubreddit(String subreddit){
+        m_subreddit = subreddit;
+    }
+
+    public void setMessage(String a){
+        m_message = a;
+    }
+
+
+    public Player(int id, int x, int y, int image){
+        m_ID = id;
+        m_x = x;
+        m_y = y;
+        m_image = image;
+    }
+
+
+    public void Display(Canvas canvas, Paint painter, int offsetX, int offsetY, int screenX, int screenY, Bitmap image){ //draws the post
+        int x = offsetX -m_x+ (screenX/2);
+        int y = offsetY-m_y + (screenY/2);
+
+        canvas.drawBitmap(image, x,y,painter);
+        painter.setTextSize(50);
+
+        painter.setColor(Color.BLACK);
+
+        if (m_message !="μ" && m_message !=null){
+            Rect r= new Rect();
+            painter.getTextBounds(m_message,0,m_message.length(),r);
+            canvas.drawText(m_message,x+image.getWidth()/2 - r.width()/2,y-50,painter);
+
+        }
+
+
+
     }
 }
