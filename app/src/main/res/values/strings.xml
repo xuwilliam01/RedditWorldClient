@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">RedditWorld</string>
+    <string name="chatbox">Chatbox</string>
+    <string name="changesubreddit">Change Subreddit</string>
 </resources>

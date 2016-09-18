@@ -61,14 +61,26 @@ public class WorldActivity extends AppCompatActivity {
     public void SendMessage(View v){
 
 
+
         EditText t = (EditText)findViewById(R.id.chatbox);
         String message = t.getText().toString();
         if(!message.equals("chat")){
-            addEvent(message);
+            addEvent("M " + message.replace(' ', '_'));
 
             ((WorldView) rootview.findViewById(R.id.view)).thread.playerMessage = message;
 
-            t.setText("chat");
+            t.setText("");
+        }
+
+    }
+
+    public void ChangeSubreddit(View v){
+
+
+        EditText t = (EditText)findViewById(R.id.subreddit);
+        String message = t.getText().toString();
+        if(!message.equals("")){
+            t.setText("");
         }
 
     }
