@@ -60,4 +60,9 @@ public class SDataProvider implements DataProvider {
     public synchronized void setID(int b){
         id = b;
     }
+
+    @Override
+    public synchronized void removePlayer(int id){
+        players[id] = null;
+    }
 }
