@@ -110,7 +110,7 @@ public class Player {
 
         painter.setColor(Color.BLACK);
 
-        if (!m_message.equals("μ") && m_message !=null){
+        if (!m_message.equals(")") && m_message !=null){
             Rect r= new Rect();
             painter.getTextBounds(m_message,0,m_message.length(),r);
             canvas.drawText(m_message,x+image.getWidth()/2 - r.width()/2,y-50,painter);

@@ -312,7 +312,8 @@ public class WorldThread extends Thread{
                 collision = p;
         }
         if (collision != null){
-            //coliision with collision object DO SOMETHING
+            //collision.Open();
+
         }
 
     }
