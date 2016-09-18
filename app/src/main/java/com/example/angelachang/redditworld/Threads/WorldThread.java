@@ -160,6 +160,18 @@ public class WorldThread extends Thread{
         }
     }
 
+    public int getSpriteNum(){
+        if (dir.equals("left")){
+            return curPlayerSprite;
+        }else{//right
+            return curPlayerSprite+5;
+        }
+
+    }
+
+    public int getSpriteType(){
+        return 0;
+    }
     public void animatePlayer(Canvas canvas){
 
 

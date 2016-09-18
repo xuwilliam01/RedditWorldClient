@@ -32,4 +32,13 @@
         android:layout_alignRight="@+id/menubutton"
         android:layout_alignEnd="@+id/menubutton" />
 
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Say"
+        android:id="@+id/commentbutton"
+        android:layout_alignTop="@+id/menubutton"
+        android:layout_alignParentBottom="true" />
+
 </RelativeLayout>

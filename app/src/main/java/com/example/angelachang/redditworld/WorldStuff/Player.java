@@ -89,6 +89,7 @@ public class Player {
     }
 
 
+
     public void Display(Canvas canvas, Paint painter, int offsetX, int offsetY, int screenX, int screenY, Bitmap image){ //draws the post
         int x = offsetX -m_x+ (screenX/2);
         int y = offsetY-m_y + (screenY/2);
