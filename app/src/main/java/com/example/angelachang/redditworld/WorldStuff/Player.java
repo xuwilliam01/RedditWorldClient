@@ -99,11 +99,15 @@ public class Player {
         m_frame = image;
     }
 
-
+    public static int height;
+    public static int width;
 
     public void Display(Canvas canvas, Paint painter, int offsetX, int offsetY, int screenX, int screenY, Bitmap image){ //draws the post
-        int x = offsetX -m_x+ (screenX/2) + image.getWidth()/2;
-        int y = offsetY-m_y + (screenY/2) + image.getHeight()/2;
+      height = image.getHeight();
+        width = image.getWidth();
+
+        int x = offsetX -m_x+ (screenX/2) ;// + image.getWidth()/2 ;
+        int y = offsetY-m_y + (screenY/2) ;//+ image.getHeight()/2;
 
         canvas.drawBitmap(image, x,y,painter);
         painter.setTextSize(50);

@@ -1,6 +1,7 @@
 package com.example.angelachang.redditworld.Threads;
 
 import com.example.angelachang.redditworld.Views.WorldView;
+import com.example.angelachang.redditworld.WorldStuff.Player;
 import com.example.angelachang.redditworld.WorldStuff.WorldActivity;
 
 import java.io.FileWriter;
@@ -21,7 +22,7 @@ public class ServerOutThread extends Thread{
         while(true){
             try {
                 if (!(oldx == WorldThread.xPos && oldy == WorldThread.yPos)) {
-                    fr.println("P " + WorldThread.xPos + " " + WorldThread.yPos + " " + WorldView.thread.getSpriteType() + " " + WorldView.thread.getSpriteNum());
+                    fr.println("P " + (WorldThread.xPos + Player.width) + " " + (WorldThread.yPos + Player.height) + " " + WorldView.thread.getSpriteType() + " " + WorldView.thread.getSpriteNum());
                     fr.flush();
                     oldx = WorldThread.xPos;
                     oldy = WorldThread.yPos;
