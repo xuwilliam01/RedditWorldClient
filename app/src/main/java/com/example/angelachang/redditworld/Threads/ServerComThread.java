@@ -34,16 +34,23 @@ public class ServerComThread extends Thread{
 
             while(true){
                 String d = is.readLine().trim();
-                System.out.println(d);
+
+                int currentToken = 0;
+                System.out.println("FAGET"+ d);
                 String[] b = d.split(" ");
-                if(b[0].equals("P")){
-                    WorldActivity.getDataProvider().addPlayer(new Player(Integer.parseInt(b[1]), Integer.parseInt(b[2]),Integer.parseInt(b[3]),Integer.parseInt(b[4]),b[5], b[6]));
-                }
-                else if(b[0].equals("S")){
-                    WorldActivity.getDataProvider().addPost(new Post(Integer.parseInt(b[1]), Integer.parseInt(b[2]),Integer.parseInt(b[3]),b[4],b[5].replaceAll("_", " "),Integer.parseInt(b[6])));
-                }else if(b[0].equals("T")){
-                    WorldThread.xPos = Integer.parseInt(b[1]);
-                    WorldThread.yPos = Integer.parseInt(b[2]);
+                for(; currentToken < b.length; ) {
+                    if (b[currentToken].equals("P")) {
+                        currentToken++;
+                        WorldActivity.getDataProvider().addPlayer(new Player(Integer.parseInt(b[currentToken++]), Integer.parseInt(b[currentToken++]), Integer.parseInt(b[currentToken++]), Integer.parseInt(b[currentToken++]), b[currentToken++], b[currentToken++]));
+                    } else if (b[currentToken].equals("S")) {
+                        currentToken++;
+                        WorldActivity.getDataProvider().addPost(new Post(Integer.parseInt(b[currentToken++]), Integer.parseInt(b[currentToken++]), Integer.parseInt(b[currentToken++]), b[currentToken++], b[currentToken++].replaceAll("_", " "), Integer.parseInt(b[currentToken++])));
+                    } else if (b[currentToken].equals("T")) {
+                        currentToken++;
+                        WorldThread.xPos = Integer.parseInt(b[currentToken++]);
+                        WorldThread.yPos = Integer.parseInt(b[currentToken++]);
+                    }
+                    System.out.println("Current" + currentToken);
                 }
             }
 

@@ -13,6 +13,7 @@ import android.view.SurfaceHolder;
 import com.example.angelachang.redditworld.ImageResources;
 import com.example.angelachang.redditworld.WorldStuff.Player;
 import com.example.angelachang.redditworld.WorldStuff.Post;
+import com.example.angelachang.redditworld.WorldStuff.WorldActivity;
 
 import java.util.ArrayList;
 
@@ -66,6 +67,7 @@ public class WorldThread extends Thread{
         painter.setARGB(255, 0, 255, 0);
         painter2 = new Paint();
         painter2.setAntiAlias(true);
+        painter2.setStrokeWidth(5);
         painter2.setARGB(255, 255, 255, 0);
         resources = new ImageResources(context);
 
@@ -118,9 +120,6 @@ public class WorldThread extends Thread{
         // so this is like clearing the screen.
         canvas.drawColor(Color.BLACK);
         canvas.drawRect(20,30,x++,50,painter);
-        if(sx != -1){
-            canvas.drawCircle((float)sx,(float)sy,10,painter);
-        }
                // System.out.println(backgroundX+" "+backgroundY);
 
         //draw the background!
@@ -132,8 +131,13 @@ public class WorldThread extends Thread{
         displayPosts(canvas);
         displayPlayers(canvas);
 
+
         animatePlayer(canvas);
 
+        if(sx != -1){
+            canvas.drawCircle((float)sx,(float)sy,10,painter2);
+            canvas.drawLine((float)sx,(float)sy,(float)sx-vx*20,(float)sy-vy*20,painter2);
+        }
         //canvas.drawBitmap(resources.background, xPos,yPos,painter);
 
 
@@ -143,8 +147,15 @@ public class WorldThread extends Thread{
 
     }
     public void displayPosts(Canvas canvas){
-        for (Post p : postList){
-            p.Display(canvas,painter,xPos,yPos,resources.screenX, resources.screenY,resources.signpost);
+        Post[] d = WorldActivity.getDataProvider().getPosts();
+        //System.out.println("asdasd" + d.length);
+        for (Post p : d){
+            if(p != null){
+                //System.out.println("sign created");
+                p.Display(canvas,painter,xPos,yPos,resources.screenX, resources.screenY,resources.signpost);
+            }
+           // System.out.println("DEBUG");
+            //p.Display(canvas,painter,xPos,yPos,resources.screenX, resources.screenY,resources.signpost);
         }
     }
 
