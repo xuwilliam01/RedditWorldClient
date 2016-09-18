@@ -77,7 +77,7 @@ public class WorldActivity extends AppCompatActivity {
 
     public void ChangeSubreddit(View v){
 
-
+        WorldActivity.getDataProvider().clear();
         EditText t = (EditText)findViewById(R.id.subreddit);
         String message = t.getText().toString();
         if(!message.equals("")){

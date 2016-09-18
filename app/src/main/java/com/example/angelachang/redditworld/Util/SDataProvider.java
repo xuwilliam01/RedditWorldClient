@@ -65,4 +65,10 @@ public class SDataProvider implements DataProvider {
     public synchronized void removePlayer(int id){
         players[id] = null;
     }
-}
+
+    public synchronized void clear(){
+        for(int i = 0; i < 10000; i++){
+            posts[i] = null;
+        }
+    }
+    }
