@@ -24,13 +24,13 @@ public class ServerComThread extends Thread{
         //System.out.println("STARTING CONNECTIONSTARTING CONNECTIONSTARTING CONNECTIONSTARTING CONNECTIONSTARTING CONNECTIONSTARTING CONNECTIONSTARTING CONNECTIONSTARTING CONNECTIONSTARTING CONNECTIONSTARTING CONNECTIONSTARTING CONNECTIONSTARTING CONNECTIONSTARTING CONNECTIONSTARTING CONNECTIONSTARTING CONNECTIONSTARTING CONNECTIONSTARTING CONNECTIONSTARTING CONNECTIONSTARTING CONNECTIONSTARTING CONNECTIONSTARTING CONNECTIONSTARTING CONNECTIONSTARTING CONNECTIONSTARTING CONNECTIONSTARTING CONNECTION");
         try{
 
-            System.out.println("TESADASDAS");
+            //System.out.println("TESADASDAS");
             Socket sock = new Socket(ConfigVals.server_ip, ConfigVals.port);
 
             BufferedReader is = new BufferedReader(new InputStreamReader(sock.getInputStream()));
             PrintWriter r = new PrintWriter( sock.getOutputStream());
 
-            //new ServerOutThread(r).start();
+            new ServerOutThread(r).start();
 
             while(is.ready()){
                 String d = is.readLine();

@@ -18,7 +18,12 @@ public class ServerOutThread extends Thread{
         while(true){
             try {
                 if (!(oldx == WorldThread.xPos && oldy == WorldThread.yPos)) {
-                    fr.write("P " + WorldThread.xPos + " " + WorldThread.yPos);
+                    fr.println("P " + WorldThread.xPos + " " + WorldThread.yPos);
+
+                    System.out.println("P " + WorldThread.xPos + " " + WorldThread.yPos);
+                    fr.flush();
+                    oldx = WorldThread.xPos;
+                    oldy = WorldThread.yPos;
                 }
                 Thread.sleep(100);
             }catch(Exception e){
