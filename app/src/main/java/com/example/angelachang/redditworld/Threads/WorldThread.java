@@ -46,7 +46,7 @@ public class WorldThread extends Thread{
     private long prevTime=0;
     String dir="left";//direction of player
     int curPlayerSprite=0; //indicates the index of playerSprite
-
+    int spriteType=0;
     int moveSpeed=10;
     public boolean mleft, mright,mup, mdown;
 
@@ -215,7 +215,7 @@ public class WorldThread extends Thread{
     }
 
     public int getSpriteType(){
-        return 0;
+        return resources.playerType;
     }
     public void animatePlayer(Canvas canvas){
 

@@ -30,6 +30,8 @@ public class ImageResources {
 
     public Bitmap background, tree, rock, signpost;
 
+    public int playerType=0;
+
     /**
      * Load images here for use in world view.
      */
@@ -49,6 +51,7 @@ public class ImageResources {
 
 
         int rnd = (int)(Math.random() * 4);
+        playerType=rnd;
         System.out.println(rnd);
         if(rnd == 0) {
             playerSpritesLeft[0] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_0_0);
