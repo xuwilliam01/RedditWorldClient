@@ -32,13 +32,27 @@
         android:layout_alignRight="@+id/menubutton"
         android:layout_alignEnd="@+id/menubutton" />
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/chatbox"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="#80ffffff"
+        android:text="chat"
+        android:layout_alignBottom="@+id/topbutton"
+        />
+
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Say"
-        android:id="@+id/commentbutton"
-        android:layout_alignTop="@+id/menubutton"
-        android:layout_alignParentBottom="true" />
+        android:text="Send"
+        android:id="@+id/sendbutton"
+        android:layout_alignBottom="@+id/chatbox"
+        android:layout_toRightOf="@+id/chatbox"
+        android:layout_toEndOf="@+id/chatbox"
+        android:onClick="SendMessage"/>
 
 </RelativeLayout>

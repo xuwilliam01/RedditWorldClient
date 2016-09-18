@@ -56,7 +56,6 @@ public class WorldThread extends Thread{
 
 
 
-
     ImageResources resources;
     public WorldThread(SurfaceHolder surfaceHolder, Context context, Handler handler) {
 
@@ -288,6 +287,7 @@ public class WorldThread extends Thread{
         yPos += vy*(deltaTime/25f);
 
     }
+
 
 
 
