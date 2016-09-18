@@ -62,4 +62,8 @@ public class Post {
         m_title = title;
         m_score = score;
     }
+
+    public void open(){
+
+    }
 }
