@@ -17,6 +17,7 @@ public class Player {
     private int m_x;
     private int m_y;
     private int m_image;
+    private int m_type;
     private String m_subreddit;
     private String m_message;
 

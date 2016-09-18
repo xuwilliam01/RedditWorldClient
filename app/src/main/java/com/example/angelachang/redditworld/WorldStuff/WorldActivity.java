@@ -1,9 +1,13 @@
 package com.example.angelachang.redditworld.WorldStuff;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -49,7 +53,6 @@ public class WorldActivity extends AppCompatActivity {
 
 
 
-
     public static DataProvider getDataProvider(){
         return dataProvider;
     }
@@ -74,6 +77,32 @@ public class WorldActivity extends AppCompatActivity {
     }
 */
 
+    public void loadWebView(String title, String url){
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(this);
+        alert.setTitle(title);
+
+        WebView wv = new WebView(this);
+        wv.loadUrl(url);
+        wv.setWebViewClient(new WebViewClient() {
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                view.loadUrl(url);
+
+                return true;
+            }
+        });
+
+        alert.setView(wv);
+        alert.setNegativeButton("Done", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.dismiss();
+            }
+        });
+        alert.show();
+
+    }
 
 
 }

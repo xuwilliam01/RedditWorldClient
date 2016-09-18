@@ -1,5 +1,7 @@
 package com.example.angelachang.redditworld.WorldStuff;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -7,6 +9,8 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Typeface;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import com.example.angelachang.redditworld.R;
 
@@ -126,7 +130,7 @@ public class Post {
     }
 
     public void Open(){ //opens the whole post for viewing
-
+        WorldActivity.rootview.loadWebView(m_title,m_url);
 
     }
 }
