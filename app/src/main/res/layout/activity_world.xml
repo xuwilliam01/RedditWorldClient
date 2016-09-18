@@ -21,6 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Go"
+        android:onClick="ChangeSubreddit"
         android:background="#B0FF5CE9"
         android:id="@+id/menubutton"
         android:layout_alignParentBottom="true"
@@ -35,6 +36,7 @@
         android:layout_alignEnd="@+id/topbutton" />
 
     <EditText
+        android:imeOptions="actionDone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/chatbox"
@@ -56,12 +58,12 @@
         android:layout_toEndOf="@+id/chatbox" />
 
     <EditText
+        android:imeOptions="actionDone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/subreddit"
         android:background="#40ffffff"
         android:layout_toLeftOf="@+id/menubutton"
-        android:onClick="ChangeSubreddit"
         android:hint="@string/changesubreddit"
         android:layout_alignParentBottom="true"
         android:layout_alignTop="@+id/menubutton" />
