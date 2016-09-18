@@ -47,19 +47,60 @@ public class ImageResources {
         playerSpritesRight[3]=ResizeBitmap(BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_0_3),scale);
         playerSpritesRight[4]=ResizeBitmap(BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_0_4),scale);*/
 
-        playerSpritesLeft[0]=BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_0_0);
-        playerSpritesLeft[1]=BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_0_1);
-        playerSpritesLeft[2]=BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_0_2);
-        playerSpritesLeft[3]=BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_0_3);
-        playerSpritesLeft[4]=BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_0_4);
+        int rnd = (int)(Math.random() * 4);
+        System.out.println(rnd);
+        if(rnd == 0) {
+            playerSpritesLeft[0] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_0_0);
+            playerSpritesLeft[1] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_0_1);
+            playerSpritesLeft[2] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_0_2);
+            playerSpritesLeft[3] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_0_3);
+            playerSpritesLeft[4] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_0_4);
 
-        playerSpritesRight[0]=BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_0_0);
-        playerSpritesRight[1]=BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_0_1);
-        playerSpritesRight[2]=BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_0_2);
-        playerSpritesRight[3]=BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_0_3);
-        playerSpritesRight[4]=BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_0_4);
+            playerSpritesRight[0] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_0_0);
+            playerSpritesRight[1] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_0_1);
+            playerSpritesRight[2] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_0_2);
+            playerSpritesRight[3] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_0_3);
+            playerSpritesRight[4] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_0_4);
+        }
+        else if(rnd == 1){
+            playerSpritesLeft[0] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_1_0);
+            playerSpritesLeft[1] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_1_1);
+            playerSpritesLeft[2] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_1_2);
+            playerSpritesLeft[3] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_1_3);
+            playerSpritesLeft[4] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_1_4);
 
+            playerSpritesRight[0] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_1_0);
+            playerSpritesRight[1] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_1_1);
+            playerSpritesRight[2] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_1_2);
+            playerSpritesRight[3] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_1_3);
+            playerSpritesRight[4] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_1_4);
+        }
+        else if(rnd == 2){
+            playerSpritesLeft[0] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_2_0);
+            playerSpritesLeft[1] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_2_1);
+            playerSpritesLeft[2] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_2_2);
+            playerSpritesLeft[3] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_2_3);
+            playerSpritesLeft[4] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_2_4);
 
+            playerSpritesRight[0] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_2_0);
+            playerSpritesRight[1] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_2_1);
+            playerSpritesRight[2] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_2_2);
+            playerSpritesRight[3] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_2_3);
+            playerSpritesRight[4] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_2_4);
+        }
+        else {
+            playerSpritesLeft[0] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_3_0);
+            playerSpritesLeft[1] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_3_1);
+            playerSpritesLeft[2] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_3_2);
+            playerSpritesLeft[3] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_3_3);
+            playerSpritesLeft[4] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.left_3_4);
+
+            playerSpritesRight[0] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_3_0);
+            playerSpritesRight[1] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_3_1);
+            playerSpritesRight[2] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_3_2);
+            playerSpritesRight[3] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_3_3);
+            playerSpritesRight[4] = BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_3_4);
+        }
         signpost= BitmapFactory.decodeResource(ctx.getResources(), R.drawable.signpostsmall);
         //background=ResizeBitmap(background, 10);
     }
