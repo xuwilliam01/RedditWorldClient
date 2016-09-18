@@ -60,7 +60,6 @@ public class WorldThread extends Thread{
 
     ImageResources resources;
     public WorldThread(SurfaceHolder surfaceHolder, Context context, Handler handler) {
-
         mSurfaceHolder = surfaceHolder;
         painter = new Paint();
         painter.setAntiAlias(true);
@@ -72,7 +71,6 @@ public class WorldThread extends Thread{
         resources = new ImageResources(context);
 
         painter.setTypeface(Typeface.create("monospace",Typeface.BOLD));
-
 
         //test
 
@@ -252,7 +250,11 @@ public class WorldThread extends Thread{
         Bitmap signpost = resources.signpost;
         Post collision = null;
         for (Post p : WorldActivity.getDataProvider().getPosts()){
-            if(xPos <= p.getX() + signpost.getWidth() && xPos + player.getWidth() >= p.getX() && yPos <= p.getY() + signpost.getHeight() && yPos + player.getHeight() >= p.getY())collision = p;
+            if(xPos <= p.getX() + signpost.getWidth() &&
+                    xPos + player.getWidth() >= p.getX() &&
+                    yPos <= p.getY() + signpost.getHeight() &&
+                    yPos + player.getHeight() >= p.getY())
+                collision = p;
         }
         if (collision != null){
             //coliision with collision object DO SOMETHING

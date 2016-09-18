@@ -42,7 +42,7 @@ public class SDataProvider implements DataProvider {
     @Override
     public synchronized Player[] getPlayers() {
         Player[] re = new Player[players.length];
-        System.arraycopy(posts, 0, re, 0, posts.length);
+        System.arraycopy(players, 0, re, 0, players.length);
         return re;
 
     }
