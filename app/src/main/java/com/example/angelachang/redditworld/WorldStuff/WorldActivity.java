@@ -1,11 +1,14 @@
 package com.example.angelachang.redditworld.WorldStuff;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
@@ -25,6 +28,8 @@ public class WorldActivity extends AppCompatActivity {
     private static DataProvider dataProvider;
     public static WorldActivity rootview;
 
+    public static WebView wv;
+
     private static ArrayList<String> eventList = new ArrayList<String>();
 
     private boolean hasWebView=false;
@@ -38,7 +43,7 @@ public class WorldActivity extends AppCompatActivity {
         rootview=this;
         ServerComThread c = new ServerComThread();
         c.start();
-        loadWebView("title","http://www.google.com");
+        loadWebView("title","http://s2.quickmeme.com/img/cf/cf70f99a696265c3e05e3ada4851eeef5481333fa3b1dbb2c96d5de225026cd7.jpg");
 
     }
 
@@ -104,11 +109,14 @@ public class WorldActivity extends AppCompatActivity {
             return;
         }
 
-        AlertDialog.Builder alert = new AlertDialog.Builder(rootview);
-        alert.setTitle(title);
+        AlertDialog.Builder alert = new AlertDialog.Builder(rootview, R.style.AlertDialogCustom);
 
-        WebView wv = new WebView(rootview);
+        wv = new WebView(rootview);
         wv.loadUrl(url);
+        wv.getSettings().setSupportZoom(true);
+        wv.getSettings().setDisplayZoomControls(false);
+        wv.getSettings().setBuiltInZoomControls(true);
+        wv.getSettings().setJavaScriptEnabled(true);
         wv.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -116,16 +124,10 @@ public class WorldActivity extends AppCompatActivity {
 
                 return true;
             }
-        });
 
-        alert.setView(wv);
-        alert.setNegativeButton("Done", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int id) {
-                hasWebView=false;
-                dialog.dismiss();
-            }
+
         });
+        alert.setView(wv);
         alert.show();
 
     }

@@ -12,6 +12,7 @@ import android.graphics.Typeface;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import com.example.angelachang.redditworld.MainActivity;
 import com.example.angelachang.redditworld.R;
 import com.example.angelachang.redditworld.Views.WorldView;
 
@@ -47,7 +48,7 @@ public class Post {
         return m_id;
     }
 
-    private boolean opened=false;
+    private static boolean opened=false;
     public int getX(){
         return m_x;
     }
@@ -131,19 +132,18 @@ public class Post {
         painter.setColor(Color.GREEN);
         canvas.drawText(String.valueOf(m_score), x+image.getWidth()/2 -50, y + 275, painter);
 
-        int x1 = (int)((WorldView)WorldActivity.rootview.findViewById(R.id.view)).thread.sx;
-        int y1 = (int)((WorldView)WorldActivity.rootview.findViewById(R.id.view)).thread.sy;
-        if (x1>= x  && x1 <= x + image.getWidth()){
-            if(y1>= y  && y1 <= y + image.getHeight()){
-                if(!opened) {
-                    opened=true;
-                    Open();
+        int x1 = (int)((WorldView)WorldActivity.rootview.findViewById(R.id.view)).thread.tapx;
+        int y1 = (int)((WorldView)WorldActivity.rootview.findViewById(R.id.view)).thread.tapy;
+        if(x1 != -1 && y1 != -1) {
+            if (x1 >= x && x1 <= x + image.getWidth()) {
+
+                if (y1 >= y && y1 <= y + image.getHeight()) {
+                    if ((WorldActivity.wv.hasFocus())) {
+                        Open();
+                    }
                 }
             }
-        }else{
-            opened=false;
         }
-
     }
 
 

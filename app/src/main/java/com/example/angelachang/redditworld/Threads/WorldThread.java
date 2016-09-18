@@ -13,6 +13,8 @@ import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 
 import com.example.angelachang.redditworld.ImageResources;
+import com.example.angelachang.redditworld.R;
+import com.example.angelachang.redditworld.Views.WorldView;
 import com.example.angelachang.redditworld.WorldStuff.Player;
 import com.example.angelachang.redditworld.WorldStuff.Post;
 import com.example.angelachang.redditworld.WorldStuff.WorldActivity;
@@ -159,6 +161,9 @@ public class WorldThread extends Thread{
            // System.out.println("DEBUG");
             //p.Display(canvas,painter,xPos,yPos,resources.screenX, resources.screenY,resources.signpost);
         }
+
+        tapx = -1;
+        tapy = -1;
     }
 
     public void displayPlayers(Canvas canvas){
@@ -319,13 +324,16 @@ public class WorldThread extends Thread{
     }
 
     public double sx= 0;
+    public double tapx = -1;
+    public double tapy = -1;
     public double sy = 0;
-
+    public long ts = System.currentTimeMillis();
     public boolean onTouchEvent(MotionEvent e){
 
         if(e.getActionMasked() == MotionEvent.ACTION_DOWN){
             sx = e.getX();
             sy = e.getY();
+            ts = System.currentTimeMillis();
         }
         double dx = (int)(e.getX()-sx);
         double dy = (int)(e.getY()-sy);
@@ -341,7 +349,12 @@ public class WorldThread extends Thread{
             vy = 0;
             sx = -1;
             sy = -1;
+            if(System.currentTimeMillis()-ts < 350){
 
+                tapx = e.getX();
+                tapy = e.getY();
+
+            }
         }
 
         return true;
