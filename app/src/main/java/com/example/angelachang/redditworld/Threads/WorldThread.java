@@ -25,11 +25,12 @@ public class WorldThread extends Thread{
     private final Object mRunLock = new Object(); // dafuq
 
     private Paint painter;
+    private Paint painter2;
 
     int x = 0;
 
-    public int xPos=0;
-    public int yPos=0;
+    public static int xPos=0;
+    public static int yPos=0;
     public float vx = 0;
     public float vy = 0;
 
@@ -63,6 +64,9 @@ public class WorldThread extends Thread{
         painter = new Paint();
         painter.setAntiAlias(true);
         painter.setARGB(255, 0, 255, 0);
+        painter2 = new Paint();
+        painter2.setAntiAlias(true);
+        painter2.setARGB(255, 255, 255, 0);
         resources = new ImageResources(context);
     }
 
@@ -102,6 +106,10 @@ public class WorldThread extends Thread{
         // so this is like clearing the screen.
         canvas.drawColor(Color.BLACK);
         canvas.drawRect(20,30,x++,50,painter);
+        if(sx != -1){
+            canvas.drawCircle((float)sx,(float)sy,10,painter);
+        }
+               // System.out.println(backgroundX+" "+backgroundY);
 
         //draw the background!
 
@@ -220,6 +228,8 @@ public class WorldThread extends Thread{
         if(e.getActionMasked() == MotionEvent.ACTION_UP) {
             vx = 0;
             vy = 0;
+            sx = -1;
+            sy = -1;
 
         }
 

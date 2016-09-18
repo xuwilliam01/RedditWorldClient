@@ -13,9 +13,13 @@ import java.util.ArrayList;
  */
 public interface DataProvider {
 
-    public Coordinate getPlayerLocation();
     public Player[] players = new Player[100000];
-    public Player[] posts = new Player[100000];
+    public Post[] posts = new Post[100000];
+
+    public void addPlayer(Player p);
+    public Coordinate getPlayerLocation();
+
+    public void addPost(Post p);
 
 
 

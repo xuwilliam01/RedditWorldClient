@@ -11,7 +11,21 @@ public class Player {
     private int m_ID;
     private int m_x;
     private int m_y;
-    private String m_image;
+    private int m_image;
+    private String m_subreddit;
+    private String m_message;
+
+    public Player(int a, int x, int y, int z, String d, String mes){
+
+        m_ID = a;
+        m_x = x;
+        m_y = y;
+        m_image = z;
+        m_subreddit = d;
+        m_message = mes;
+
+
+    }
 
     public int getID(){
         return m_ID;
@@ -25,8 +39,16 @@ public class Player {
         return m_y;
     }
 
-    public String getImage(){
+    public int getImage(){
         return m_image;
+    }
+
+    public String getSubreddit(){
+        return m_subreddit;
+    }
+
+    public String getMessage(){
+        return m_message;
     }
 
     public void setID(int ID){
@@ -41,7 +63,15 @@ public class Player {
         m_y=y;
     }
 
-    public void setImage(String image){
+    public void setImage(int image){
         m_image = image;
+    }
+
+    public void setSubreddit(String subreddit){
+        m_subreddit = subreddit;
+    }
+
+    public void setMessage(String a){
+        m_message = a;
     }
 }
