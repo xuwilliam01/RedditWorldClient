@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
@@ -59,7 +60,6 @@ public class WorldThread extends Thread{
 
     ImageResources resources;
     public WorldThread(SurfaceHolder surfaceHolder, Context context, Handler handler) {
-
         mSurfaceHolder = surfaceHolder;
         painter = new Paint();
         painter.setAntiAlias(true);
@@ -71,7 +71,6 @@ public class WorldThread extends Thread{
         resources = new ImageResources(context);
 
         painter.setTypeface(Typeface.create("monospace",Typeface.BOLD));
-
 
         //test
 
@@ -96,7 +95,6 @@ public class WorldThread extends Thread{
                         if (running){
                             doDraw(c);
                             doScroll();
-
                             if (prevDeltaTime==0){//initialize
                                 prevDeltaTime= System.currentTimeMillis();
                             }
@@ -159,7 +157,8 @@ public class WorldThread extends Thread{
     }
 
     public void displayPlayers(Canvas canvas){
-        for (Player p : playerList){
+        for (Player p : WorldActivity.getDataProvider().getPlayers()){
+            if(p == null)continue;
             int i=p.getImage();
             if (i <5) {
                 p.Display(canvas, painter, xPos, yPos, resources.screenX, resources.screenY, resources.playerSpritesLeft[i]);
@@ -247,6 +246,20 @@ public class WorldThread extends Thread{
         }
     }
     private void gameLogic(){
+        Bitmap player = resources.playerSpritesLeft[curPlayerSprite];
+        Bitmap signpost = resources.signpost;
+        Post collision = null;
+        for (Post p : WorldActivity.getDataProvider().getPosts()){
+            if(p == null)continue;
+            if(xPos <= p.getX() + signpost.getWidth() &&
+                    xPos + player.getWidth() >= p.getX() &&
+                    yPos <= p.getY() + signpost.getHeight() &&
+                    yPos + player.getHeight() >= p.getY())
+                collision = p;
+        }
+        if (collision != null){
+            //coliision with collision object DO SOMETHING
+        }
 
     }
 

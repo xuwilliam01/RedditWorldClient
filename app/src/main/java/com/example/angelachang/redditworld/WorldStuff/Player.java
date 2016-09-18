@@ -16,19 +16,29 @@ public class Player {
     private int m_ID;
     private int m_x;
     private int m_y;
-    private int m_image;
-    private int m_type;
+    private int m_frame;
     private String m_subreddit;
     private String m_message;
+    private int m_image;
 
-    public Player(int a, int x, int y, int z, String d, String mes){
+    public int getM_image() {
+        return m_image;
+    }
+
+    public void setM_image(int m_image) {
+        this.m_image = m_image;
+    }
+
+    public Player(int a, int x, int y, int z, int mg,String d, String mes){
 
         m_ID = a;
         m_x = x;
         m_y = y;
-        m_image = z;
+        m_frame = z;
         m_subreddit = d;
         m_message = mes;
+        m_image = mg;
+
 
 
     }
@@ -46,7 +56,7 @@ public class Player {
     }
 
     public int getImage(){
-        return m_image;
+        return m_frame;
     }
 
     public String getSubreddit(){
@@ -70,7 +80,7 @@ public class Player {
     }
 
     public void setImage(int image){
-        m_image = image;
+        m_frame = image;
     }
 
     public void setSubreddit(String subreddit){
@@ -86,7 +96,7 @@ public class Player {
         m_ID = id;
         m_x = x;
         m_y = y;
-        m_image = image;
+        m_frame = image;
     }
 
 

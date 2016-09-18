@@ -41,7 +41,7 @@ public class ServerComThread extends Thread{
                 for(; currentToken < b.length; ) {
                     if (b[currentToken].equals("P")) {
                         currentToken++;
-                        WorldActivity.getDataProvider().addPlayer(new Player(Integer.parseInt(b[currentToken++]), Integer.parseInt(b[currentToken++]), Integer.parseInt(b[currentToken++]), Integer.parseInt(b[currentToken++]), b[currentToken++], b[currentToken++]));
+                        WorldActivity.getDataProvider().addPlayer(new Player(Integer.parseInt(b[currentToken++]), Integer.parseInt(b[currentToken++]), Integer.parseInt(b[currentToken++]), Integer.parseInt(b[currentToken++]),Integer.parseInt(b[currentToken++]), b[currentToken++], b[currentToken++]));
                     } else if (b[currentToken].equals("S")) {
                         currentToken++;
                         WorldActivity.getDataProvider().addPost(new Post(Integer.parseInt(b[currentToken++]), Integer.parseInt(b[currentToken++]), Integer.parseInt(b[currentToken++]), b[currentToken++], b[currentToken++].replaceAll("_", " "), Integer.parseInt(b[currentToken++])));
