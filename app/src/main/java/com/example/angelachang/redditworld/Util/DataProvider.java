@@ -21,6 +21,7 @@ public interface DataProvider {
 
     public void addPost(Post p);
     public Post[] getPosts();
+    public Player[] getPlayers();
 
 
 
