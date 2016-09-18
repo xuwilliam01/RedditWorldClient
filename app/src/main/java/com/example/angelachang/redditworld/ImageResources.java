@@ -60,7 +60,7 @@ public class ImageResources {
         playerSpritesRight[4]=BitmapFactory.decodeResource(ctx.getResources(), R.drawable.right_0_4);
 
 
-        signpost= BitmapFactory.decodeResource(ctx.getResources(), R.drawable.signpost);
+        signpost= BitmapFactory.decodeResource(ctx.getResources(), R.drawable.signpostsmall);
         //background=ResizeBitmap(background, 10);
     }
 

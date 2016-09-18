@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
@@ -57,8 +58,7 @@ public class WorldThread extends Thread{
 
 
     ImageResources resources;
-    public WorldThread(SurfaceHolder surfaceHolder, Context context,
-                       Handler handler) {
+    public WorldThread(SurfaceHolder surfaceHolder, Context context, Handler handler) {
 
         mSurfaceHolder = surfaceHolder;
         painter = new Paint();
@@ -68,6 +68,15 @@ public class WorldThread extends Thread{
         painter2.setAntiAlias(true);
         painter2.setARGB(255, 255, 255, 0);
         resources = new ImageResources(context);
+
+        painter.setTypeface(Typeface.create("monospace",Typeface.BOLD));
+
+
+        //test
+
+        Post p = new Post(10,200,200,"test","This is a reddit post!",420);
+        postList.add(p);
+
     }
 
     public void run() {
@@ -115,11 +124,12 @@ public class WorldThread extends Thread{
 
         scrollBackground(canvas); //draws the background accordingly
 
-        animatePlayer(canvas);
+
 
         displayPosts(canvas);
         displayPlayers(canvas);
 
+        animatePlayer(canvas);
 
         //canvas.drawBitmap(resources.background, xPos,yPos,painter);
 
@@ -131,7 +141,7 @@ public class WorldThread extends Thread{
     }
     public void displayPosts(Canvas canvas){
         for (Post p : postList){
-            p.Display(canvas,painter,xPos,yPos,resources.screenX, resources.screenY);
+            p.Display(canvas,painter,xPos,yPos,resources.screenX, resources.screenY,resources.signpost);
         }
     }
 

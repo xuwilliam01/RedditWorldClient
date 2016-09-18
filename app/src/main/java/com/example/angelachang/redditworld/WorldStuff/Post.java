@@ -1,8 +1,13 @@
 package com.example.angelachang.redditworld.WorldStuff;
 
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Typeface;
+
+import com.example.angelachang.redditworld.R;
 
 /**
  * Created by angelachang on 9/17/16.
@@ -16,6 +21,7 @@ public class Post {
     private int m_score;
 
     private Bitmap m_image;
+    ;
 
     public String getTitle(){
         return m_title;
@@ -69,12 +75,20 @@ public class Post {
         m_score = score;
     }
 
-    public void Display(Canvas canvas, Paint painter, int offsetX, int offsetY, int screenX, int screenY){ //draws the post
-        int x = m_x - offsetX + (screenX/2);
-        int y = m_y - offsetY + (screenY/2);
 
-        canvas.drawBitmap(m_image, x,y,painter);
+    public void Display(Canvas canvas, Paint painter, int offsetX, int offsetY, int screenX, int screenY,Bitmap image){ //draws the post
+        int x = offsetX -m_x+ (screenX/2);
+        int y = offsetY-m_y + (screenY/2);
 
+        canvas.drawBitmap(image, x,y,painter);
+        painter.setTextSize(50);
+
+        painter.setColor(Color.BLACK);
+
+
+        //format the string to fit
+
+        canvas.drawText(m_score +": "+m_title, x+20, y+125, painter);
     }
 
     public void Open(){ //opens the whole post for viewing
