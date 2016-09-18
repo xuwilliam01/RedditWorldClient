@@ -34,10 +34,10 @@ public class Player {
         m_ID = a;
         m_x = x;
         m_y = y;
-        m_frame = z;
+        m_frame = mg;
         m_subreddit = d;
         m_message = mes;
-        m_image = mg;
+        m_image = z;
 
     }
 
@@ -108,7 +108,8 @@ public class Player {
         canvas.drawBitmap(image, x,y,painter);
         painter.setTextSize(50);
 
-        painter.setColor(Color.BLACK);
+        painter.setColor(Color.WHITE);
+        m_message=m_message.replaceAll(" ", "_");
 
         if (!m_message.equals(")") && m_message !=null){
             Rect r= new Rect();

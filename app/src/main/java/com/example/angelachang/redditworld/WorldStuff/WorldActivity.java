@@ -84,10 +84,12 @@ public class WorldActivity extends AppCompatActivity {
 
         WorldActivity.getDataProvider().clear();
         EditText t = (EditText)findViewById(R.id.subreddit);
+
         String message = t.getText().toString();
-        if(!message.equals("")){
-            t.setText("");
+        if(message.equals("")){
+            return;
         }
+        t.setText("");
         WorldActivity.addEvent("S " + message.trim());
 
     }
